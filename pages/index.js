@@ -22,7 +22,21 @@ import {
 import { useScrollTrigger } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline'
 import SList from '../components/List';
-import { modules, others, widgets } from '../data/scripts'
+import {
+  red,
+  purple,
+  deepPurple,
+  indigo,
+  blue,
+  cyan,
+  teal,
+  green,
+  amber,
+  brown,
+  grey,
+  blueGrey,
+} from '@mui/material/colors';
+import { modules, others, widgets } from '../data/scripts';
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
@@ -35,6 +49,7 @@ const HideOnScroll = (props) => {
 };
 
 export default function Home(props) {
+  const { widgets, modules, others } = props;
   const [value, setValue] = useState(0)
 
   const listener = (event) => {
@@ -93,4 +108,38 @@ export default function Home(props) {
       </Paper>
     </Box>
   )
+}
+
+export const getStaticProps = () => {
+  const colors = [
+    red,
+    purple,
+    deepPurple,
+    indigo,
+    blue,
+    cyan,
+    teal,
+    green,
+    amber,
+    brown,
+    grey,
+    blueGrey,
+  ];
+  const randomColor = () => colors[Math.floor(Math.random() * colors.length)][400];
+  return {
+    props: {
+      widgets: widgets.map((item) => ({
+        ...item,
+        bgcolor: randomColor(),
+      })),
+      modules: modules.map((item) => ({
+        ...item,
+        bgcolor: randomColor(),
+      })),
+      others: others.map((item) => ({
+        ...item,
+        bgcolor: randomColor(),
+      })),
+    }
+  };
 }

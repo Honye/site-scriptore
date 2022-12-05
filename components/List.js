@@ -22,9 +22,8 @@ const ScriptableList = (props) => {
     )
   };
 
-  const install = (name) => {
-    console.log(`[Web] invoke intall "${name}"`)
-    invoke('install', name)
+  const install = (data) => {
+    invoke('install', data)
   };
 
   return (
@@ -33,7 +32,7 @@ const ScriptableList = (props) => {
         <ListSubheader disableSticky>{title}</ListSubheader>
       }>
         {(list || []).map((item) => (
-          <Item key={item.name} data={item} onClick={() => install(item.name)} />
+          <Item key={item.name} data={item} onClick={() => install(item)} />
         ))}
       </List>
     </Paper>

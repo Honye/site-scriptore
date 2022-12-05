@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   Avatar,
   Icon,
@@ -24,28 +25,27 @@ import {
 const Item = (props) => {
   const { data, onClick } = props;
 
-  const colors = [
-    red,
-    purple,
-    deepPurple,
-    indigo,
-    blue,
-    cyan,
-    teal,
-    green,
-    amber,
-    brown,
-    grey,
-    blueGrey,
-  ]
+  const [loading, setLoading] = useState(false)
 
-  const bgcolor = colors[Math.floor(Math.random() * colors.length)][400]
+  const listener = (event) => {
+    const { code, data } = event.detail
+    if (code === 'install-success' && data.name === props.data.name) {
+      window.removeEventListener('JWeb', listener)
+      setLoading(false)
+    }
+  }
+
+  const _onClick = () => {
+    onClick?.();
+    setLoading(true)
+    window.addEventListener('JWeb', listener)
+  }
 
   return (
     <ListItem>
       <ListItemAvatar>
         <Avatar
-          sx={{ borderRadius: 2, bgcolor }}
+          sx={{ borderRadius: 2, bgcolor: data.bgcolor }}
           variant='square'
         >
           <Icon>{data.icon || 'auto_fix_high'}</Icon>
@@ -57,8 +57,8 @@ const Item = (props) => {
         edge='end'
         variant='outlined'
         size='small'
-        loading={false}
-        onClick={onClick}
+        loading={loading}
+        onClick={_onClick}
       >Install</LoadingButton>
     </ListItem>
   )
