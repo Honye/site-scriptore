@@ -58,6 +58,7 @@ export default function Home(props) {
   }
 
   useEffect(() => {
+    console.log('[Web] Index page mounted')
     window.addEventListener('JWeb', listener)
     return () => {
       window.removeEventListener('JWeb', listener)
@@ -101,9 +102,9 @@ export default function Home(props) {
           showLabels
           onChange={(e, value) => setValue(value)}
         >
-          <BottomNavigationAction label='Scripts' icon={<WidgetsIcon />} />
-          <BottomNavigationAction label='Updates' icon={<MoveToInboxIcon />} />
-          <BottomNavigationAction label='About' icon={<InfoIcon />} />
+          <BottomNavigationAction label='Scripts' icon={<WidgetsIcon />} component={Link} href='/' />
+          <BottomNavigationAction label='Updates' icon={<MoveToInboxIcon />} component={Link} href='/updates' />
+          <BottomNavigationAction label='About' icon={<InfoIcon />} component={Link} href='/about' />
         </BottomNavigation>
       </Paper>
     </Box>
