@@ -13,26 +13,13 @@ import Item from './ListItem';
 const ScriptableList = (props) => {
   const { title, list } = props;
 
-  const invoke = (code, data) => {
-    window.dispatchEvent(
-      new CustomEvent(
-        'JBridge',
-        { detail: { code, data } }
-      )
-    )
-  };
-
-  const install = (data) => {
-    invoke('install', data)
-  };
-
   return (
     <Paper sx={{ borderRadius: 2 }} elevation={6}>
       <List subheader={
         <ListSubheader disableSticky>{title}</ListSubheader>
       }>
         {(list || []).map((item) => (
-          <Item key={item.name} data={item} onClick={() => install(item)} />
+          <Item key={item.name} data={item} />
         ))}
       </List>
     </Paper>

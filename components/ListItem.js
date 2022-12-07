@@ -7,25 +7,20 @@ import {
   ListItemText,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-import {
-  red,
-  purple,
-  deepPurple,
-  indigo,
-  blue,
-  cyan,
-  teal,
-  green,
-  amber,
-  brown,
-  grey,
-  blueGrey,
-} from '@mui/material/colors';
 
 const Item = (props) => {
-  const { data, onClick } = props;
+  const { data } = props;
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+
+  const invoke = (code, data) => {
+    window.dispatchEvent(
+      new CustomEvent(
+        'JBridge',
+        { detail: { code, data } }
+      )
+    )
+  };
 
   const listener = (event) => {
     const { code, data } = event.detail
@@ -33,13 +28,18 @@ const Item = (props) => {
       window.removeEventListener('JWeb', listener)
       setLoading(false)
     }
-  }
+  };
 
-  const _onClick = () => {
-    onClick?.();
-    setLoading(true)
-    window.addEventListener('JWeb', listener)
-  }
+  const install = () => {
+    const ua = navigator.userAgent;
+    if (/Safari/.test(ua)) {
+      location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
+    } else {
+      setLoading(true);
+      window.addEventListener('JWeb', listener);
+      invoke('install', data);
+    }
+  };
 
   return (
     <ListItem>
@@ -58,7 +58,7 @@ const Item = (props) => {
         variant='outlined'
         size='small'
         loading={loading}
-        onClick={_onClick}
+        onClick={install}
       >Install</LoadingButton>
     </ListItem>
   )
