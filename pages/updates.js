@@ -43,7 +43,7 @@ const Updates = () => {
       }}
     >
       <Head>
-        <meta name='viewport' content='width=device-width, viewport-fit=cover' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover' />
         <title>Scriptore - Scriptable store</title>
       </Head>
       <Container sx={{ p: 2 }} maxWidth='sm'>

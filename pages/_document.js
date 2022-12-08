@@ -17,7 +17,6 @@ class MyDocument extends Document {
           <link rel='apple-touch-icon' sizes='144x144' href='/icons/apple-touch-icon-144x144.png' />
           <link rel='shortcut icon' href='/favicon.ico' />
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-          <script data-ad-client="ca-pub-5081404689679582" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         </Head>
         <body>
           <Main />

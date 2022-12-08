@@ -84,6 +84,12 @@ export default function Home(props) {
     return () => controller.abort();
   }, []);
 
+  useEffect(() => {
+    // Scriptable 内嵌时无法检测到监听
+    window['$index.setInstalledMap'] = setInstalledMap;
+    return () => delete window['$index.setInstalledMap'];
+  }, [])
+
   return (
     <Box
       sx={{
@@ -92,7 +98,7 @@ export default function Home(props) {
       }}
     >
       <Head>
-        <meta name='viewport' content='width=device-width, viewport-fit=cover' />
+        <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover' />
         <title>Scriptore - Scriptable store</title>
       </Head>
       <HideOnScroll {...props}>
