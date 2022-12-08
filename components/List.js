@@ -11,7 +11,7 @@ import Item from './ListItem';
  * @param {any[]} props.list
  */
 const ScriptableList = (props) => {
-  const { title, list } = props;
+  const { title, list, installedMap = {} } = props;
 
   return (
     <Paper sx={{ borderRadius: 2 }} elevation={6}>
@@ -19,7 +19,11 @@ const ScriptableList = (props) => {
         <ListSubheader disableSticky>{title}</ListSubheader>
       }>
         {(list || []).map((item) => (
-          <Item key={item.name} data={item} />
+          <Item
+            key={item.name}
+            data={item}
+            installed={installedMap[`${item.name}.js`]?.version}
+          />
         ))}
       </List>
     </Paper>

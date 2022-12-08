@@ -9,7 +9,7 @@ import {
 import { LoadingButton } from '@mui/lab';
 
 const Item = (props) => {
-  const { data } = props;
+  const { data, installed } = props;
 
   const [loading, setLoading] = useState(false);
 
@@ -41,6 +41,19 @@ const Item = (props) => {
     }
   };
 
+  const open = () => {
+    const { name } = data;
+    location.href = `scriptable:///run/${name}`;
+  };
+
+  const onClick = () => {
+    if (installed) {
+      open();
+    } else {
+      install();
+    }
+  };
+
   return (
     <ListItem>
       <ListItemAvatar>
@@ -58,8 +71,8 @@ const Item = (props) => {
         variant='outlined'
         size='small'
         loading={loading}
-        onClick={install}
-      >Install</LoadingButton>
+        onClick={onClick}
+      >{installed ? 'Open' : 'Install'}</LoadingButton>
     </ListItem>
   )
 }

@@ -11,7 +11,7 @@ class MyDocument extends Document {
       <Html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
         <Head>
           <meta name="application-name" content="Scriptore" />
-          <meta name="description" content="There is no description for Scriptore" />
+          <meta name="description" content="Scriptable scripts store" />
           <meta name='apple-mobile-web-app-title' content="Scriptore" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <link rel='apple-touch-icon' sizes='144x144' href='/icons/apple-touch-icon-144x144.png' />
