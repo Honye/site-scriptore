@@ -32,6 +32,7 @@ import {
   blueGrey,
 } from '@mui/material/colors';
 import { modules, others, widgets } from '../data/scripts';
+import { invoke } from '../utils/bridge';
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
@@ -47,48 +48,43 @@ export default function Home(props) {
   const { widgets, modules, others } = props;
   const [installedMap, setInstalledMap] = useState(null);
 
-  const invoke = (code, data) => {
-    console.log(`[Web] invoke "${code}"`);
-    window.dispatchEvent(
-      new CustomEvent(
-        'JBridge',
-        { detail: { code, data } }
-      )
-    );
-  };
-
-  const listener = (event) => {
-    const { code, data } = event.detail
-    console.log(`[Web] message from Scriptable. ${JSON.stringify({ code, data })}`)
-  }
+  const installedListener = (event) => setInstalledMap(event.detail);
 
   useEffect(() => {
-    console.log('[Web] Index page mounted')
-    window.addEventListener('JWeb', listener)
-    return () => {
-      window.removeEventListener('JWeb', listener)
-    }
-  }, [])
-
-  useEffect(() => {
-    invoke('getInstalled');
     const controller = new AbortController();
-    const listener = (event) => {
-      setInstalledMap(event.detail);
-    };
     window.addEventListener(
       'postInstalled',
-      listener,
+      installedListener,
       { signal: controller.signal }
     );
+    invoke('getInstalled');
     return () => controller.abort();
   }, []);
 
   useEffect(() => {
-    // Scriptable 内嵌时无法检测到监听
-    window['$index.setInstalledMap'] = setInstalledMap;
-    return () => delete window['$index.setInstalledMap'];
-  }, [])
+    const controller = new AbortController();
+    const get = () => {
+      sessionStorage.setItem('installed', 'listened');
+      window.addEventListener(
+        'postInstalled',
+        installedListener,
+        { signal: controller.signal }
+      );
+      invoke('getInstalled');
+    };
+
+    let timer;
+    if (!installedMap && !sessionStorage.getItem('installed')) {
+      timer = setInterval(() => get(), 200);
+    } else {
+      timer && clearInterval(timer);
+    }
+
+    return () => {
+      timer && clearInterval(timer);
+      controller.abort();
+    };
+  }, [installedMap]);
 
   return (
     <Box

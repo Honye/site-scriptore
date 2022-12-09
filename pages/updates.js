@@ -6,19 +6,10 @@ import {
   Paper,
 } from '@mui/material';
 import BottomNavigation from '../components/BottomNavigation';
+import { invoke } from '../utils/bridge';
 
 const Updates = () => {
   const [installed, setInstalled] = useState('');
-
-  const invoke = (code, data) => {
-    console.log(`[Web] invoke "${code}"`);
-    window.dispatchEvent(
-      new CustomEvent(
-        'JBridge',
-        { detail: { code, data } }
-      )
-    );
-  };
   
   useEffect(() => {
     console.log('[Web] Updates page mounted');
