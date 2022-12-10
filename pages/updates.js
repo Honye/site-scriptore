@@ -1,16 +1,57 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Box,
   Container,
+  List,
+  ListSubheader,
   Paper,
 } from '@mui/material';
 import BottomNavigation from '../components/BottomNavigation';
+import Item from '../components/UpdateItem';
 import { invoke } from '../utils/bridge';
+import { getScripts } from '../server/scripts';
+import { compareVersions } from '../utils/utils';
 
-const Updates = () => {
-  const [installed, setInstalled] = useState('');
-  
+const Updates = (props) => {
+  const { widgets, modules, others } = props;
+  const [installed, setInstalled] = useState(null);
+
+  const updates = useMemo(() => {
+    if (!installed) return [];
+
+    const list = [];
+    for (const item of installed) {
+      const widget = widgets.find((el) => 
+        `${el.name}.js` === item.name &&
+        compareVersions(el.version || '0.0.0', item.version || '0.0.0') > 0
+      );
+      if (widget) {
+        list.push({ ...widget, type: 'widget' });
+        continue;
+      }
+
+      const mod = modules.find((el) =>
+        `${el.name}.module.js` === item.name &&
+        compareVersions(el.version || '0.0.0', item.version || '0.0.0') > 0
+      );
+      if (mod) {
+        list.push({ ...mod, type: 'module' });
+        continue;
+      }
+
+      const other = others.find((el) =>
+        `${el.name}.js` === item.name &&
+        compareVersions(el.version || '0.0.0', item.version || '0.0.0') > 0
+      );
+      if (other) {
+        list.push({ ...other, type: 'other' });
+        continue;
+      }
+    }
+    return list;
+  }, [installed, modules, others, widgets]);
+
   useEffect(() => {
     console.log('[Web] Updates page mounted');
     invoke('getInstalled');
@@ -38,7 +79,17 @@ const Updates = () => {
         <title>Scriptore - Scriptable store</title>
       </Head>
       <Container sx={{ p: 2 }} maxWidth='sm'>
-        <p>{JSON.stringify(installed) || 'none'}</p>
+        <Paper sx={{ borderRadius: 2 }} elevation={6}>
+          <List
+            subheader={
+              <ListSubheader disableSticky>AVALIABLE UPDATES</ListSubheader>
+            }
+          >
+            {(updates || []).map((item) => (
+              <Item key={item.name} data={item} />
+            ))}
+          </List>
+        </Paper>
       </Container>
       <Paper
         sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
@@ -55,6 +106,12 @@ const Updates = () => {
       </Paper>
     </Box>
   );
+};
+
+export const getStaticProps = () => {
+  return {
+    props: getScripts(),
+  };
 };
 
 export default Updates;

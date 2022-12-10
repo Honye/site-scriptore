@@ -17,22 +17,8 @@ import {
 import { useScrollTrigger } from '@mui/material';
 import SList from '../components/List';
 import BottomNavigation from '../components/BottomNavigation';
-import {
-  red,
-  purple,
-  deepPurple,
-  indigo,
-  blue,
-  cyan,
-  teal,
-  green,
-  amber,
-  brown,
-  grey,
-  blueGrey,
-} from '@mui/material/colors';
-import { modules, others, widgets } from '../data/scripts';
 import { invoke } from '../utils/bridge';
+import { getScripts } from '../server/scripts';
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
@@ -62,8 +48,12 @@ export default function Home(props) {
   }, []);
 
   useEffect(() => {
+    let timer;
     const controller = new AbortController();
     const get = () => {
+      if (sessionStorage.getItem('installed')) {
+        timer && clearInterval(timer);
+      }
       sessionStorage.setItem('installed', 'listened');
       window.addEventListener(
         'postInstalled',
@@ -73,7 +63,6 @@ export default function Home(props) {
       invoke('getInstalled');
     };
 
-    let timer;
     if (!installedMap && !sessionStorage.getItem('installed')) {
       timer = setInterval(() => get(), 200);
     } else {
@@ -115,9 +104,9 @@ export default function Home(props) {
       </HideOnScroll>
       <Container sx={{ p: 2 }} maxWidth='sm'>
         <Stack spacing={2}>
-          <SList title='Widgets' list={widgets} installedMap={installedMap || {}} />
-          <SList title='Modules' list={modules} installedMap={installedMap || {}} />
-          <SList title='Others' list={others} installedMap={installedMap || {}} />
+          <SList title='Widgets' list={widgets} installedList={installedMap || []} />
+          <SList title='Modules' list={modules} installedList={installedMap || []} />
+          <SList title='Others' list={others} installedList={installedMap || []} />
         </Stack>
       </Container>
       <Paper
@@ -138,35 +127,7 @@ export default function Home(props) {
 }
 
 export const getStaticProps = () => {
-  const colors = [
-    red,
-    purple,
-    deepPurple,
-    indigo,
-    blue,
-    cyan,
-    teal,
-    green,
-    amber,
-    brown,
-    grey,
-    blueGrey,
-  ];
-  const randomColor = () => colors[Math.floor(Math.random() * colors.length)][400];
   return {
-    props: {
-      widgets: widgets.map((item) => ({
-        ...item,
-        bgcolor: randomColor(),
-      })),
-      modules: modules.map((item) => ({
-        ...item,
-        bgcolor: randomColor(),
-      })),
-      others: others.map((item) => ({
-        ...item,
-        bgcolor: randomColor(),
-      })),
-    }
+    props: getScripts(),
   };
-}
+};

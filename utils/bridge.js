@@ -4,3 +4,8 @@ export const invoke = (code, data = null) => {
     new CustomEvent('JBridge', { detail: { code, data } })
   );
 };
+
+export const runsInSafari = () => {
+  const ua = navigator.userAgent;
+  return /Safari/.test(ua);
+};

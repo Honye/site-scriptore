@@ -11,7 +11,7 @@ import Item from './ListItem';
  * @param {any[]} props.list
  */
 const ScriptableList = (props) => {
-  const { title, list, installedMap = {} } = props;
+  const { title, list, installedList = [] } = props;
 
   return (
     <Paper sx={{ borderRadius: 2 }} elevation={6}>
@@ -22,7 +22,7 @@ const ScriptableList = (props) => {
           <Item
             key={item.name}
             data={item}
-            installed={installedMap[`${item.name}.js`]?.version}
+            installed={installedList.find((el) => el.name === `${item.name}.js`)}
           />
         ))}
       </List>
