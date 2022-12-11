@@ -14,19 +14,19 @@ const Navigation = (props) => {
   return (
     <BottomNavigation value={value} showLabels>
       <BottomNavigationAction
-        label='Scripts'
+        label='脚本'
         icon={<WidgetsIcon />}
         component={Link}
         href='/'
       />
       <BottomNavigationAction
-        label='Updates'
+        label='更新'
         icon={<MoveToInboxIcon />}
         component={Link}
         href='/updates'
       />
       <BottomNavigationAction
-        label='About'
+        label='关于'
         icon={<InfoIcon />}
         component={Link}
         href='/about'

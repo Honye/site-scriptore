@@ -82,7 +82,7 @@ const Updates = (props) => {
         <Paper sx={{ borderRadius: 2 }} elevation={6}>
           <List
             subheader={
-              <ListSubheader disableSticky>AVALIABLE UPDATES</ListSubheader>
+              <ListSubheader disableSticky>可用更新</ListSubheader>
             }
           >
             {(updates || []).map((item) => (

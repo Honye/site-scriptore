@@ -66,7 +66,7 @@ const Item = (props) => {
         size='small'
         loading={loading}
         onClick={onClick}
-      >{updated ? 'Open' : 'Update'}</LoadingButton>
+      >{updated ? '打开' : '更新'}</LoadingButton>
     </ListItem>
   )
 }

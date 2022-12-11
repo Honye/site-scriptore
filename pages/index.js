@@ -104,9 +104,9 @@ export default function Home(props) {
       </HideOnScroll>
       <Container sx={{ p: 2 }} maxWidth='sm'>
         <Stack spacing={2}>
-          <SList title='Widgets' list={widgets} installedList={installedMap || []} />
-          <SList title='Modules' list={modules} installedList={installedMap || []} />
-          <SList title='Others' list={others} installedList={installedMap || []} />
+          <SList title='桌面组件' list={widgets} installedList={installedMap || []} />
+          <SList title='模块' list={modules} installedList={installedMap || []} />
+          <SList title='其他' list={others} installedList={installedMap || []} />
         </Stack>
       </Container>
       <Paper

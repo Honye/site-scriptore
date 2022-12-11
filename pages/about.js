@@ -34,7 +34,7 @@ const About = () => {
         <Typography variant='body1'>可通过捷径快速安装上述脚本。捷径除了可安装上述脚本外，还可以扫码、分享和剪贴板链接快速安装脚本</Typography>
         <br />
         <Typography variant='body1'>GitHub：<Link href='https://github.com/honye/scriptable-scripts'>Honye/scriptable-scripts</Link></Typography>
-        <Typography variant='body1'>Shortcuts：<Link href='https://www.icloud.com/shortcuts/72468242c20248e786d352580aabbbef'>Install in Scriptable</Link></Typography>
+        <Typography variant='body1'>捷径：<Link href='https://www.icloud.com/shortcuts/72468242c20248e786d352580aabbbef'>Install in Scriptable</Link></Typography>
       </Container>
       <Paper
         sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}

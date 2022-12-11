@@ -72,7 +72,7 @@ const Item = (props) => {
         size='small'
         loading={loading}
         onClick={onClick}
-      >{installed ? 'Open' : 'Install'}</LoadingButton>
+      >{installed ? '打开' : '获取'}</LoadingButton>
     </ListItem>
   )
 }

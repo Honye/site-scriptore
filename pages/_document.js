@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="en" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
+      <Html lang="zh-CN" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
         <Head>
           <meta name="application-name" content="Scriptore" />
           <meta name="description" content="Scriptable scripts store" />
