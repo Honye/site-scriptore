@@ -1,17 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Avatar,
   Icon,
   ListItem,
   ListItemAvatar,
+  ListItemButton,
   ListItemText,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 
 const Item = (props) => {
-  const { data, installed } = props;
+  const { data } = props;
 
+  const [installed, setInstalled] = useState(props.installed);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => setInstalled(props.installed), [props.installed])
 
   const invoke = (code, data) => {
     window.dispatchEvent(
@@ -25,7 +29,8 @@ const Item = (props) => {
   const listener = (event) => {
     const { code, data } = event.detail
     if (code === 'install-success' && data.name === props.data.name) {
-      window.removeEventListener('JWeb', listener)
+      window.removeEventListener('JWeb', listener);
+      setInstalled(true);
       setLoading(false)
     }
   };
@@ -42,8 +47,10 @@ const Item = (props) => {
   };
 
   const open = () => {
-    const { name } = data;
-    location.href = `scriptable:///run/${name}`;
+    const { type, name } = data;
+    location.href = type === 'module'
+      ? `scriptable:///open/${encodeURIComponent(`${name}.module`)}`
+      : `scriptable:///run/${encodeURIComponent(name)}`;
   };
 
   const onClick = () => {
@@ -55,24 +62,34 @@ const Item = (props) => {
   };
 
   return (
-    <ListItem>
-      <ListItemAvatar>
-        <Avatar
-          sx={{ borderRadius: 2, bgcolor: data.bgcolor }}
-          variant='square'
-        >
-          <Icon>{data.icon || 'auto_fix_high'}</Icon>
-        </Avatar>
-      </ListItemAvatar>
-      <ListItemText primary={data.name} secondary={data.intro} />
-      <LoadingButton
-        sx={{ textTransform:'none' }}
-        edge='end'
-        variant='outlined'
-        size='small'
-        loading={loading}
-        onClick={onClick}
-      >{installed ? '打开' : '获取'}</LoadingButton>
+    <ListItem
+      sx={{
+        '>.MuiListItemButton-root': {
+          pr: 11
+        }
+      }}
+      secondaryAction={
+        <LoadingButton
+          edge='end'
+          variant='outlined'
+          size='small'
+          loading={loading}
+          onClick={onClick}
+        >{installed ? '打开' : '获取'}</LoadingButton>
+      }
+      disablePadding
+    >
+      <ListItemButton>
+        <ListItemAvatar>
+          <Avatar
+            sx={{ width: 44, height: 44, borderRadius: 2, bgcolor: data.bgcolor }}
+            variant='square'
+          >
+            <Icon>{data.icon || 'auto_fix_high'}</Icon>
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={data.name} secondary={data.intro} />
+      </ListItemButton>
     </ListItem>
   )
 }

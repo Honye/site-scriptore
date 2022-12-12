@@ -27,7 +27,7 @@ const Updates = (props) => {
         compareVersions(el.version || '0.0.0', item.version || '0.0.0') > 0
       );
       if (widget) {
-        list.push({ ...widget, type: 'widget' });
+        list.push(widget);
         continue;
       }
 
@@ -36,7 +36,7 @@ const Updates = (props) => {
         compareVersions(el.version || '0.0.0', item.version || '0.0.0') > 0
       );
       if (mod) {
-        list.push({ ...mod, type: 'module' });
+        list.push(mod);
         continue;
       }
 
@@ -45,7 +45,7 @@ const Updates = (props) => {
         compareVersions(el.version || '0.0.0', item.version || '0.0.0') > 0
       );
       if (other) {
-        list.push({ ...other, type: 'other' });
+        list.push(other);
         continue;
       }
     }
@@ -98,7 +98,7 @@ const Updates = (props) => {
         <Box
           sx={{
             pb: 'env(safe-area-inset-bottom)',
-            bgcolor: theme => theme.palette.background.paper
+            bgcolor: 'background.paper',
           }}
         >
           <BottomNavigation value={1} />

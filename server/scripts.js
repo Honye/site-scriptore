@@ -36,16 +36,19 @@ export const getScripts = () => {
   if (!scripts) {
     scripts = {
       widgets: widgets.map((item) => ({
-        ...item,
+        type: 'widget',
         bgcolor: randomColor(),
+        ...item,
       })),
       modules: modules.map((item) => ({
-        ...item,
+        type: 'module',
         bgcolor: randomColor(),
+        ...item,
       })),
       others: others.map((item) => ({
-        ...item,
+        type: 'other',
         bgcolor: randomColor(),
+        ...item,
       })),
     };
   }

@@ -4,6 +4,7 @@ import {
   Icon,
   ListItem,
   ListItemAvatar,
+  ListItemButton,
   ListItemText,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
@@ -37,7 +38,9 @@ const Item = (props) => {
 
   const open = () => {
     const { name } = data;
-    location.href = `scriptable:///run/${name}`;
+    location.href = type === 'module'
+      ? `scriptable:///open/${encodeURIComponent(`${name}.module`)}`
+      : `scriptable:///run/${encodeURIComponent(name)}`;
   };
 
   const onClick = () => {
@@ -49,24 +52,35 @@ const Item = (props) => {
   };
 
   return (
-    <ListItem>
-      <ListItemAvatar>
-        <Avatar
-          sx={{ borderRadius: 2, bgcolor: data.bgcolor }}
-          variant='square'
-        >
-          <Icon>{data.icon || 'auto_fix_high'}</Icon>
-        </Avatar>
-      </ListItemAvatar>
-      <ListItemText primary={data.name} secondary={`Version ${data.version || '0.0.0'}`} />
-      <LoadingButton
-        sx={{ textTransform:'none' }}
-        edge='end'
-        variant='outlined'
-        size='small'
-        loading={loading}
-        onClick={onClick}
-      >{updated ? '打开' : '更新'}</LoadingButton>
+    <ListItem
+      sx={{
+        '>.MuiListItemButton-root': {
+          pr: 11
+        }
+      }}
+      secondaryAction={
+        <LoadingButton
+          sx={{ textTransform:'none' }}
+          edge='end'
+          variant='outlined'
+          size='small'
+          loading={loading}
+          onClick={onClick}
+        >{updated ? '打开' : '更新'}</LoadingButton>
+      }
+      disablePadding
+    >
+      <ListItemButton>
+        <ListItemAvatar>
+          <Avatar
+            sx={{ width: 44, height: 44, borderRadius: 2, bgcolor: data.bgcolor }}
+            variant='square'
+          >
+            <Icon>{data.icon || 'auto_fix_high'}</Icon>
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary={data.name} secondary={`版本 ${data.version || '0.0.0'}`} />
+      </ListItemButton>
     </ListItem>
   )
 }

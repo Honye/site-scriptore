@@ -65,7 +65,7 @@ export const widgets = [
     name: '10010',
     version: '1.1.0',
     icon: 'phone_iphone',
-    intro: '联通余量信息',
+    intro: '联通余量信息和自动签到',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/10010.js',
     ],

@@ -22,7 +22,11 @@ const ScriptableList = (props) => {
           <Item
             key={item.name}
             data={item}
-            installed={installedList.find((el) => el.name === `${item.name}.js`)}
+            installed={installedList.find((el) =>
+              item.type === 'module'
+                ? el.name === `${item.name}.module.js`
+                : el.name === `${item.name}.js`
+            )}
           />
         ))}
       </List>

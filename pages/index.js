@@ -79,7 +79,7 @@ export default function Home(props) {
     <Box
       sx={{
         pb: theme => `calc(${theme.spacing(7)} + env(safe-area-inset-bottom))`,
-        pt: 'env(safe-area-inset-top)'
+        pt: 'env(safe-area-inset-top)',
       }}
     >
       <Head>
@@ -116,7 +116,7 @@ export default function Home(props) {
         <Box
           sx={{
             pb: 'env(safe-area-inset-bottom)',
-            bgcolor: theme => theme.palette.background.paper
+            bgcolor: 'background.paper',
           }}
         >
           <BottomNavigation value={0} />

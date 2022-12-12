@@ -43,7 +43,7 @@ const About = () => {
         <Box
           sx={{
             pb: 'env(safe-area-inset-bottom)',
-            bgcolor: theme => theme.palette.background.paper
+            bgcolor: 'background.paper',
           }}
         >
           <BottomNavigation value={2} />
