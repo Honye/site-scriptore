@@ -99,6 +99,7 @@ export const modules = [
   },
   {
     name: 'withSettings',
+    version: '1.2.0',
     icon: 'dashboard',
     intro: '轻松实现可视化配置',
     files: [
