@@ -137,7 +137,7 @@ export const others = [
   },
   {
     name: 'Clean Files 2',
-    version: '2.0.1',
+    version: '2.0.2',
     icon: 'folder_open',
     intro: 'Clean Files 的升级版',
     files: [
