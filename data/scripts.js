@@ -53,6 +53,15 @@ export const widgets = [
     ],
   },
   {
+    name: 'App 限免优惠',
+    version: '1.0.0',
+    icon: 'paid',
+    intro: 'iOS 每日限免和优惠应用',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/App%20%E9%99%90%E5%85%8D%E4%BC%98%E6%83%A0.js'
+    ],
+  },
+  {
     name: 'Shortcuts',
     version: '1.1.0',
     icon: 'app_shortcut',
