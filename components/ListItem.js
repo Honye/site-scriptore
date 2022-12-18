@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useEffect, useState } from 'react'
 import {
   Avatar,
@@ -79,7 +80,7 @@ const Item = (props) => {
       }
       disablePadding
     >
-      <ListItemButton>
+      <ListItemButton LinkComponent={Link} href={`/scriptables/${data.name}`}>
         <ListItemAvatar>
           <Avatar
             sx={{ width: 44, height: 44, borderRadius: 2, bgcolor: data.bgcolor }}
