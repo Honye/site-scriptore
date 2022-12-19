@@ -10,6 +10,10 @@ import Image from 'next/image';
 import { blueGrey } from '@mui/material/colors';
 import { widgets, modules, others } from '../../data/scripts';
 
+/**
+ * @param {object} props
+ * @param {import('../../data/scripts').Script} props.data
+ */
 const Detail = (props) => {
   const { data } = props;
 
@@ -60,49 +64,50 @@ const Detail = (props) => {
             >v{data.version}</LoadingButton>
           </Box>
         </Box>
-        <Divider sx={{ my: 1 }} />
-        <Box>
-          <Typography variant='h6'>预览</Typography>
-          <Box 
-            sx={{
-              display: 'flex',
-              gap: 1,
-              overflow: 'auto',
-              scrollSnapType: 'x mandatory',
-              '::-webkit-scrollbar': { display: 'none' },
-            }}
-          >
-            {images.map((img, index) => (
-              <Box
-                key={index}
+        {data.snapshots?.length && (
+          <>
+            <Divider sx={{ my: 1 }} />
+            <Box>
+              <Typography variant='h6'>预览</Typography>
+              <Box 
                 sx={{
-                  minWidth: '60%',
-                  border: 1,
-                  borderRadius: 2,
-                  overflow: 'hidden',
-                  aspectRatio: '0.56',
-                  scrollSnapAlign: 'start',
-                  position: 'relative',
+                  display: 'flex',
+                  gap: 1,
+                  overflow: 'auto',
+                  scrollSnapType: 'x mandatory',
+                  '::-webkit-scrollbar': { display: 'none' },
                 }}
               >
-                <Image
-                  style={{ objectFit: 'contain' }}
-                  src={img}
-                  alt=''
-                  fill
-                />
+                {data.snapshots.map((img, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      minWidth: '60%',
+                      border: 1,
+                      borderRadius: 2,
+                      overflow: 'hidden',
+                      aspectRatio: '0.56',
+                      scrollSnapAlign: 'start',
+                      position: 'relative',
+                    }}
+                  >
+                    <Image
+                      style={{ objectFit: 'contain' }}
+                      src={img}
+                      alt=''
+                      fill
+                    />
+                  </Box>
+                ))}
               </Box>
-            ))}
-          </Box>
-        </Box>
+            </Box>
+          </>
+        )}
         <Divider sx={{ my: 1 }} />
         <Typography
           sx={{ whiteSpace: 'pre-wrap'}}
           variant='body1'
-        >{
-`- One
-- Two`
-        }</Typography>
+        >{data.content}</Typography>
       </Container>
     </Box>
   );

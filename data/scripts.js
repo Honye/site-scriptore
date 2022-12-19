@@ -1,3 +1,6 @@
+// @ts-check
+
+/** @type {Script[]} */
 export const widgets = [
   {
     name: 'Weibo',
@@ -7,6 +10,25 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Weibo.js',
     ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/weibo_medium_light.jpg',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/weibo_medium_dark.jpg',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/weibo_ui.jpeg',
+    ],
+  },
+  {
+    name: 'Photos',
+    version: '1.0.0',
+    icon: 'photo_library',
+    intro: '支持多相册的桌面组件',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Photos.js',
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/IMG_1568.PNG',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/IMG_1569.PNG',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/IMG_1570.PNG',
+    ],
   },
   {
     name: 'GitHub Contributions',
@@ -14,6 +36,10 @@ export const widgets = [
     intro: 'GitHub 贡献网格图',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/GitHub%20Contributions.js',
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/github_small_light.jpg',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/github_medium_dark.jpg',
     ],
   },
   {
@@ -24,6 +50,9 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/CoinGecko.js'
     ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/coingecko.JPG'
+    ]
   },
   {
     name: 'Calendar',
@@ -32,6 +61,9 @@ export const widgets = [
     intro: '和 Apple 日历一样美观的日历，农历显示，可作为打卡日历',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Calendar.js',
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/calendar.jpeg',
     ],
   },
   {
@@ -50,6 +82,10 @@ export const widgets = [
     intro: '豆瓣每日电影',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Douban.js',
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/douban_small.jpg',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/douban_medium.jpg',
     ],
   },
   {
@@ -78,12 +114,18 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/10010.js',
     ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/10010_small_light.jpg',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/10010_small_dark.jpg',
+    ],
   },
 ];
 
+/** @type {Script[]} */
 export const modules = [
   {
     name: 'lunar',
+    version: '1.0.0',
     icon: 'event_available',
     intro: '农历转换工具',
     files: [
@@ -92,6 +134,7 @@ export const modules = [
   },
   {
     name: 'utils',
+    version: '1.0.0',
     icon: 'handyman',
     intro: '工具集',
     files: [
@@ -100,6 +143,7 @@ export const modules = [
   },
   {
     name: 'color',
+    version: '1.0.0',
     icon: 'palette',
     intro: '颜色处理工具',
     files: [
@@ -117,6 +161,7 @@ export const modules = [
   },
   {
     name: 'widgets',
+    version: '1.0.0',
     icon: 'widgets',
     intro: '常用组件工具集',
     files: [
@@ -163,3 +208,15 @@ export const others = [
     ],
   },
 ];
+
+/**
+ * @typedef {object} Script
+ * @property {string} name
+ * @property {string} version 版本。如：1.0.0
+ * @property {string} intro 简述
+ * @property {string[]} files 文件可下载链接。入口文件放在首位
+ * @property {string[]} [snapshots] 预览图链接
+ * @property {string} [content] 详细说明
+ * @property {string} [icon] Material Icon
+ * @property {string} [background] 背景
+ */
