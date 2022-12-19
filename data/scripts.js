@@ -170,6 +170,7 @@ export const modules = [
   },
 ];
 
+/** @type {Script[]} */
 export const others = [
   {
     name: 'Installer',
@@ -200,11 +201,11 @@ export const others = [
   },
   {
     name: 'Scriptore',
-    version: '0.1.0',
+    version: '0.1.1',
     icon: 'token',
     intro: 'Scriptable 脚本仓库',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Scriptore.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@b00865325cd9e5abdf005f3d073b2e9662d6b286/dist/Scriptore.js',
     ],
   },
 ];

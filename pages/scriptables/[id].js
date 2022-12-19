@@ -1,12 +1,17 @@
+import Link from 'next/link';
 import {
+  AppBar,
   Avatar,
   Box, Container,
   Divider,
   Icon,
-  ListItemText, Typography
+  IconButton,
+  ListItemText, Toolbar, Typography
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import Image from 'next/image';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useRouter } from 'next/router';
 import { blueGrey } from '@mui/material/colors';
 import { widgets, modules, others } from '../../data/scripts';
 
@@ -16,17 +21,23 @@ import { widgets, modules, others } from '../../data/scripts';
  */
 const Detail = (props) => {
   const { data } = props;
+  const router = useRouter();
 
-  const images = [
-    'https://w.wallhaven.cc/full/jx/wallhaven-jx811m.png',
-    'https://w.wallhaven.cc/full/jx/wallhaven-jx811m.png',
-    'https://w.wallhaven.cc/full/jx/wallhaven-jx811m.png',
-    'https://w.wallhaven.cc/full/jx/wallhaven-jx811m.png',
-    'https://w.wallhaven.cc/full/jx/wallhaven-jx811m.png',
-    'https://w.wallhaven.cc/full/jx/wallhaven-jx811m.png',
-  ]
   return (
     <Box>
+      <AppBar position='static'>
+        <Toolbar>
+          <IconButton
+            size='large'
+            edge='start'
+            color='inherit'
+            onClick={() => router.back()}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant='h6' sx={{ flexGrow: 1 }}>{data.name}</Typography>
+        </Toolbar>
+      </AppBar>
       <Container maxWidth='sm'>
         <Box
           sx={{
