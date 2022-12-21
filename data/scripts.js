@@ -32,10 +32,10 @@ export const widgets = [
   },
   {
     name: 'GitHub Contributions',
-    version: '1.3.2',
+    version: '1.4.0',
     intro: 'GitHub 贡献网格图',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/GitHub%20Contributions.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@e46010069ee777eae5a5976d13a5c12452b06927/dist/GitHub%20Contributions.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/github_small_light.jpg',
