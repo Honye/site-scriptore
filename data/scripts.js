@@ -56,15 +56,17 @@ export const widgets = [
   },
   {
     name: 'Calendar',
-    version: '1.1.2',
+    version: '1.2.0',
     icon: 'calendar_month',
     intro: '和 Apple 日历一样美观的日历，农历显示，可作为打卡日历',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Calendar.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@4161187f9f842532d716aeb6958e026a0e6a13a8/dist/Calendar.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/calendar.jpeg',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@4161187f9f842532d716aeb6958e026a0e6a13a8/docs/assets/calendar_preview_1.jpg',
     ],
+    content: '美观的日历组件\n\n- 支持中英双语\n- 可自定义背景和色彩\n- 编辑组件时可输入系统日历名\n\n'
   },
   {
     name: 'Countdown',
