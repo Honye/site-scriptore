@@ -20,7 +20,7 @@ import { widgets, modules, others } from '../../data/scripts';
  * @param {import('../../data/scripts').Script} props.data
  */
 const Detail = (props) => {
-  const { data } = props;
+  const { data = {} } = props;
   const router = useRouter();
 
   return (
@@ -124,7 +124,8 @@ const Detail = (props) => {
   );
 };
 
-export const getServerSideProps = ({ params }) => {
+/** @type {import('next').GetStaticProps<{data: typeof widgets[0]}, { id: string}>} */
+export const getStaticProps = ({ params }) => {
   const { id } = params;
   const widget = widgets.find((item) => item.name === decodeURIComponent(id))
   if (widget) {
@@ -150,6 +151,17 @@ export const getServerSideProps = ({ params }) => {
       },
     };
   }
+};
+
+/** @type {import('next').GetStaticPaths} */
+export const getStaticPaths = async () => {
+  const paths = [...widgets, ...modules, ...others].map((script) => ({
+    params: { id: script.name }
+  }));
+  return {
+    paths,
+    fallback: true
+  };
 };
 
 export default Detail;
