@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import Link from 'next/link';
+import { useCallback, useState } from 'react';
 import {
   Avatar,
   Icon,
@@ -16,16 +17,16 @@ const Item = (props) => {
   const [loading, setLoading] = useState(false);
   const [updated, setUpdated] = useState(false);
 
-  const listener = (event) => {
+  const listener = useCallback((event) => {
     const { code, data } = event.detail;
     if (code === 'install-success' && data.name === props.data.name) {
       window.removeEventListener('JWeb', listener);
       setLoading(false);
       setUpdated(true);
     }
-  };
+  }, [props.data.name]);
 
-  const update = () => {
+  const update = useCallback(() => {
     const ua = navigator.userAgent;
     if (/Safari/.test(ua)) {
       location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
@@ -34,22 +35,22 @@ const Item = (props) => {
       window.addEventListener('JWeb', listener);
       invoke('updateScript', data);
     }
-  };
+  }, [data, listener]);
 
-  const open = () => {
-    const { name } = data;
+  const open = useCallback(() => {
+    const { name, type } = data;
     location.href = type === 'module'
       ? `scriptable:///open/${encodeURIComponent(`${name}.module`)}`
       : `scriptable:///run/${encodeURIComponent(name)}`;
-  };
+  }, [data]);
 
-  const onClick = () => {
+  const onClick = useCallback(() => {
     if (updated) {
       open();
     } else {
       update();
     }
-  };
+  }, [open, update, updated]);
 
   return (
     <ListItem
@@ -70,7 +71,7 @@ const Item = (props) => {
       }
       disablePadding
     >
-      <ListItemButton>
+      <ListItemButton LinkComponent={Link} href={`/scriptables/${data.name}`}>
         <ListItemAvatar>
           <Avatar
             sx={{ width: 44, height: 44, borderRadius: 2, bgcolor: data.bgcolor }}

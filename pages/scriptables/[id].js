@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import {
   AppBar,
   Avatar,
@@ -20,7 +19,7 @@ import { widgets, modules, others } from '../../data/scripts';
  * @param {import('../../data/scripts').Script} props.data
  */
 const Detail = (props) => {
-  const { data = {} } = props;
+  const { data } = props;
   const router = useRouter();
 
   return (
@@ -95,9 +94,10 @@ const Detail = (props) => {
                     sx={{
                       minWidth: '60%',
                       border: 1,
+                      borderColor: 'grey.500',
                       borderRadius: 2,
                       overflow: 'hidden',
-                      aspectRatio: '0.56',
+                      aspectRatio: `${375 / 667}`,
                       scrollSnapAlign: 'start',
                       position: 'relative',
                     }}
@@ -151,6 +151,10 @@ export const getStaticProps = ({ params }) => {
       },
     };
   }
+
+  return {
+    notFound: true,
+  };
 };
 
 /** @type {import('next').GetStaticPaths} */
@@ -160,7 +164,7 @@ export const getStaticPaths = async () => {
   }));
   return {
     paths,
-    fallback: true
+    fallback: 'blocking'
   };
 };
 
