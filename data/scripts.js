@@ -184,6 +184,19 @@ export const modules = [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/widgets.module.js',
     ],
   },
+  {
+    name: 'Proxy',
+    version: '1.0.0',
+    icon: 'extension',
+    intro: 'API 链式调用无命名烦恼',
+    content: 'Scriptable API 增强工具\nAPI 链式调用无命名烦恼\n组件可修改的属性修改配置的方法均可支持链式调用\n若有疑问可在 GitHub 联系我\n\n',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/Proxy.module.js',
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Proxy_1.jpg'
+    ]
+  },
 ];
 
 /** @type {Script[]} */
