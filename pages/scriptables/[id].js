@@ -13,6 +13,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from 'next/router';
 import { blueGrey } from '@mui/material/colors';
 import { widgets, modules, others } from '../../data/scripts';
+import styles from './[id].module.css'
 
 /**
  * @param {object} props
@@ -90,14 +91,13 @@ const Detail = (props) => {
               >
                 {data.snapshots.map((img, index) => (
                   <Box
+                    className={styles.snapshotItem}
                     key={index}
                     sx={{
                       minWidth: '60%',
-                      border: 1,
-                      borderColor: 'grey.500',
+                      aspectRatio: `${375 / 667}`,
                       borderRadius: 2,
                       overflow: 'hidden',
-                      aspectRatio: `${375 / 667}`,
                       scrollSnapAlign: 'start',
                       position: 'relative',
                     }}

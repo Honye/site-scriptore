@@ -72,14 +72,14 @@ export const widgets = [
     name: 'Countdown',
     version: '1.2.0',
     icon: 'restore',
-    intro: '倒数日',
+    intro: '倒数日/纪念日',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@738c030b80ca4ada3ed1a835763109031befabbe/dist/Countdown.js',
     ],
     snapshots: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/countdown_1.jpeg',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/countdown_1.jpg',
     ],
-    content: '纪念日/倒数日\n\n- 支持中英双语\n\n可高度自定义',
+    content: '纪念日/倒数日\n\n- 支持中英双语\n- 可高度自定义\n\n',
   },
   {
     name: 'Douban',
