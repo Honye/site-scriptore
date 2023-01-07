@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import Head from 'next/head';
 import {
   Avatar,
@@ -5,12 +6,26 @@ import {
   Box,
   Container,
   Paper,
+  Stack,
   Typography,
 } from '@mui/material';
 import BottomNavigation from '../components/BottomNavigation';
 import Link from '../components/Link';
+import { fetchUser } from '../server/github';
 
-const About = () => {
+const About = (props) => {
+  const { user } = props;
+
+  const onLogin = useCallback(() => {
+    if (user) return;
+
+    const searchParams = new URLSearchParams();
+    searchParams.append('client_id', process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID);
+    searchParams.append('scope', 'repo admin:repo_hook read:user');
+    searchParams.append('state', 'imark');
+    searchParams.append('redirect_uri', `https://www.imarkr.com/api/authorize?redirect=${encodeURIComponent(location.href)}`);
+    location.href = `https://github.com/login/oauth/authorize?${searchParams.toString()}`;
+  }, [user]);
 
   return (
     <Box
@@ -24,6 +39,22 @@ const About = () => {
         <title>Scriptore - Scriptable store</title>
       </Head>
       <Container maxWidth='sm'>
+        <Stack
+          sx={{ py: 2 }}
+          direction="row"
+          spacing={1}
+          alignItems="center"
+          onClick={onLogin}
+        >
+          <Avatar
+            sx={{ width: '50px', height: '50px' }}
+            src={user?.avatar_url}
+          />
+          <Typography
+            sx={{ textTransform: 'uppercase', color: 'grey.800' }}
+            variant="h6"
+          >{ user?.login || '未登录' }</Typography>
+        </Stack>
         <AvatarGroup max={6}>
           <Avatar sx={{ width: '66px', height: '66px' }} alt='Jun' src='https://w.wallhaven.cc/full/jx/wallhaven-jx811m.png' />
           <Avatar sx={{ width: '66px', height: '66px' }} alt='Jackie' src='https://w.wallhaven.cc/full/9d/wallhaven-9d6wg8.jpg' />
@@ -51,6 +82,20 @@ const About = () => {
       </Paper>
     </Box>
   );
+};
+
+/** @type {import('next').GetServerSideProps} */
+export const getServerSideProps = async ({ req, query }) => {
+  const { token } = req.cookies;
+
+  const user = await fetchUser({ token })
+      .then((resp) => resp.ok ? resp.json() : null);
+  
+  return {
+    props: {
+      user
+    }
+  };
 };
 
 export default About;
