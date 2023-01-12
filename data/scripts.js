@@ -91,8 +91,7 @@ export const widgets = [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Douban.js',
     ],
     snapshots: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/douban_small.jpg',
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/douban_medium.jpg',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Douban_1.png',
     ],
   },
   {
