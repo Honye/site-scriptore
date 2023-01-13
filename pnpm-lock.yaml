@@ -6,12 +6,14 @@ specifiers:
   '@mui/icons-material': ^5.10.16
   '@mui/lab': 5.0.0-alpha.110
   '@mui/material': ^5.10.16
+  cropperjs: ^1.5.13
   eslint: 8.26.0
   eslint-config-next: 13.0.0
   https-proxy-agent: ^5.0.1
   next: 13.0.0
   node-fetch: ^3.3.0
   react: 18.2.0
+  react-cropper: ^2.1.8
   react-dom: 18.2.0
 
 dependencies:
@@ -20,10 +22,12 @@ dependencies:
   '@mui/icons-material': 5.10.16_xutw6a5cgihjw5rn7pwgimhdum
   '@mui/lab': 5.0.0-alpha.110_4xnbwop7ylm5pogdusyqfiqcyu
   '@mui/material': 5.10.16_5rzy53przelm5jchjmb5vr6dxy
+  cropperjs: 1.5.13
   https-proxy-agent: 5.0.1
   next: 13.0.0_biqbaboplfbrettd7655fr4n2y
   node-fetch: 3.3.0
   react: 18.2.0
+  react-cropper: 2.1.8_react@18.2.0
   react-dom: 18.2.0_react@18.2.0
 
 devDependencies:
@@ -954,6 +958,10 @@ packages:
       parse-json: 5.2.0
       path-type: 4.0.0
       yaml: 1.10.2
+    dev: false
+
+  /cropperjs/1.5.13:
+    resolution: {integrity: sha512-by7jKAo73y5/Do0K6sxdTKHgndY0NMjG2bEdgeJxycbcmHuCiMXqw8sxy5C5Y5WTOTcDGmbT7Sr5CgKOXR06OA==}
     dev: false
 
   /cross-spawn/7.0.3:
@@ -2122,6 +2130,15 @@ packages:
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
+
+  /react-cropper/2.1.8_react@18.2.0:
+    resolution: {integrity: sha512-QEj6CE9et/gMRqpaKMgZQdBgtzLjjq+zj1pmHwtoWG6GqscDl4QpTwoEElWN2pieYxkwFaZa0lPiD2b9nwqLKQ==}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      cropperjs: 1.5.13
+      react: 18.2.0
+    dev: false
 
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}

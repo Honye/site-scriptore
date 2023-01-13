@@ -1,0 +1,9 @@
+.image {
+  display: block;
+  width: 100%;
+  max-width: 768px;
+}
+.box {
+  display: inline-block;
+  box-sizing: border-box;
+}

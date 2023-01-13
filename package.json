@@ -14,10 +14,12 @@
     "@mui/icons-material": "^5.10.16",
     "@mui/lab": "5.0.0-alpha.110",
     "@mui/material": "^5.10.16",
+    "cropperjs": "^1.5.13",
     "https-proxy-agent": "^5.0.1",
     "next": "13.0.0",
     "node-fetch": "^3.3.0",
     "react": "18.2.0",
+    "react-cropper": "^2.1.8",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
