@@ -3,7 +3,7 @@ import { Link as MLink } from '@mui/material';
 import { invoke, runsInSafari } from '../utils/bridge';
 
 const Link = (props) => {
-  const { href, children } = props;
+  const { href, children, ...restProps } = props;
   const [isInSafari, setIsInSafari] = useState(false);
   
   useEffect(() => setIsInSafari(runsInSafari()), []);
@@ -15,7 +15,7 @@ const Link = (props) => {
   }, [href, isInSafari]);
 
   return (
-    <MLink href={isInSafari ? href : undefined} onClick={onClick}>{children}</MLink>
+    <MLink href={isInSafari ? href : undefined} onClick={onClick} {...restProps}>{children}</MLink>
   );
 };
 

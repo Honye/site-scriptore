@@ -5,10 +5,20 @@ import {
   AvatarGroup,
   Box,
   Container,
+  Divider,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
   Paper,
   Stack,
   Typography,
 } from '@mui/material';
+import CropIcon from '@mui/icons-material/Crop';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import LayersIcon from '@mui/icons-material/Layers';
 import BottomNavigation from '../components/BottomNavigation';
 import Link from '../components/Link';
 import { fetchUser } from '../server/github';
@@ -64,8 +74,48 @@ const About = (props) => {
         <Typography variant='body1' gutterBottom>在 Scriptable 应用内使用可安装 <Link href='https://raw.githubusercontent.com/Honye/scriptable-scripts/master/dist/Scriptore.js'>Scriptore</Link> 脚本</Typography>
         <Typography variant='body1'>可通过捷径快速安装上述脚本。捷径除了可安装上述脚本外，还可以扫码、分享和剪贴板链接快速安装脚本</Typography>
         <br />
-        <Typography variant='body1'>GitHub：<Link href='https://github.com/honye/scriptable-scripts'>Honye/scriptable-scripts</Link></Typography>
-        <Typography variant='body1'>捷径：<Link href='https://www.icloud.com/shortcuts/72468242c20248e786d352580aabbbef'>Install in Scriptable</Link></Typography>
+        <Paper elevation={3}>
+          <List>
+            <ListItem
+              sx={{ color: 'inherit' }}
+              disablePadding
+              component={Link}
+              href='/cropper'
+            >
+              <ListItemButton>
+                <ListItemIcon><CropIcon /></ListItemIcon>
+                <ListItemText primary="背景裁剪" secondary="裁剪图片区域作为组件背景" />
+                <ChevronRightIcon />
+              </ListItemButton>
+            </ListItem>
+            <Divider />
+            <ListItem
+              sx={{ color: 'inherit' }}
+              disablePadding
+              component={Link}
+              href='https://www.icloud.com/shortcuts/b9e6d5140d7547baaca52ca2ce382f3e'
+            >
+              <ListItemButton>
+                <ListItemIcon><LayersIcon /></ListItemIcon>
+                <ListItemText primary="脚本安装器（捷径）" secondary="通过链接分享菜单、剪贴板链接、链接二维码扫描安装脚本" />
+                <ChevronRightIcon />
+              </ListItemButton>
+            </ListItem>
+            <Divider />
+            <ListItem
+              sx={{ color: 'inherit' }}
+              disablePadding
+              component={Link}
+              href='https://github.com/honye/scriptable-scripts'
+            >
+              <ListItemButton>
+                <ListItemIcon><GitHubIcon /></ListItemIcon>
+                <ListItemText primary="Honye/scriptable-scripts" />
+                <ChevronRightIcon />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </Paper>
       </Container>
       <Paper
         sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
