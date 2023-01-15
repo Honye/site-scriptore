@@ -233,6 +233,18 @@ export const others = [
     ],
   },
   {
+    name: 'SF Symbols',
+    version: '1.0.0',
+    icon: 'keyboard_command_key',
+    intro: 'SF Symbols 图标浏览查找',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/SF%20Symbols.js',
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/SF-Symbols_1.png'
+    ]
+  },
+  {
     name: 'Scriptore',
     version: '0.1.1',
     icon: 'token',
