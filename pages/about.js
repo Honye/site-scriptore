@@ -80,7 +80,7 @@ const About = (props) => {
               sx={{ color: 'inherit' }}
               disablePadding
               component={Link}
-              href='/cropper'
+              href='https://scriptore.imarkr.com/cropper'
             >
               <ListItemButton>
                 <ListItemIcon><CropIcon /></ListItemIcon>
