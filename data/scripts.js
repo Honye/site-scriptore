@@ -19,17 +19,19 @@ export const widgets = [
   },
   {
     name: 'Photos',
-    version: '1.0.0',
+    version: '1.1.0',
     icon: 'photo_library',
     intro: '支持多相册的桌面组件',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Photos.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@a18290cf5823e6ab4c5644e9352f79cfe16e25bc/dist/Photos.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/IMG_1568.PNG',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/IMG_1569.PNG',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/IMG_1570.PNG',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Photos_1.png',
     ],
+    content: '新建相册后在桌面编辑组件时输入创建的相册名\n\n设置透明背景后可实现 PNG 透明效果\n\n',
   },
   {
     name: 'GitHub Contributions',
