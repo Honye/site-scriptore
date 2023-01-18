@@ -236,11 +236,11 @@ export const others = [
   },
   {
     name: 'SF Symbols',
-    version: '1.0.0',
+    version: '1.0.1',
     icon: 'keyboard_command_key',
     intro: 'SF Symbols 图标浏览查找',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/SF%20Symbols.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@eb0ffa7c25b2d297e4de7b960fb376d551d959a2/dist/SF%20Symbols.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/SF-Symbols_1.png'
