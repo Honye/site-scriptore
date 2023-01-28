@@ -262,11 +262,11 @@ export const others = [
   },
   {
     name: 'Scriptore',
-    version: '0.1.1',
+    version: '0.2.0',
     icon: 'token',
     intro: 'Scriptable 脚本仓库',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@b00865325cd9e5abdf005f3d073b2e9662d6b286/dist/Scriptore.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@84310cb84314806a2c977b28e8028c0f99868209/dist/Scriptore.js',
     ],
   },
 ];
