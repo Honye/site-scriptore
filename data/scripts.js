@@ -141,6 +141,20 @@ export const widgets = [
     ],
     content: `之前的 10010 组件只能显示已使用的流量信息，使用湖北联通显示的是剩余的流量\n\n数据来源于公众号【湖北联通】`,
   },
+  {
+    name: 'Matrix',
+    version: '0.1.1',
+    intro: '任意网格排列图片或快捷方式',
+    content: '配置说明：\n图片和快捷方式配置暂未提供可视化配置，如需修改默认配置可进入代码编辑模式参照注释修改',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@20c1b796f59297515a991adda3f6871bceb09fe7/dist/Matrix.js'
+    ],
+    dependencies: {
+      'utils.module': 'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/utils.module.js',
+      'widgets.module': 'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/widgets.module.js',
+      'withSettings.module': 'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/withSettings.module.js'
+    }
+  }
 ];
 
 /** @type {Script[]} */
@@ -263,6 +277,7 @@ export const others = [
  * @property {string} version 版本。如：1.0.0
  * @property {string} intro 简述
  * @property {string[]} files 文件可下载链接。入口文件放在首位
+ * @property {Record<string, string>} [dependencies] 依赖
  * @property {string[]} [snapshots] 预览图链接
  * @property {string} [content] 详细说明
  * @property {string} [icon] Material Icon
