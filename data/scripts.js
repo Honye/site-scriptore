@@ -188,11 +188,11 @@ export const modules = [
   },
   {
     name: 'withSettings',
-    version: '1.2.0',
+    version: '1.3.0',
     icon: 'dashboard',
     intro: '轻松实现可视化配置',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/withSettings.module.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@daabfc51e24d1d3747a7b7616e31206eee443d6f/src/withSettings.module.js',
     ],
   },
   {
