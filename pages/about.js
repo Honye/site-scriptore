@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import Head from 'next/head';
+import NextLink from 'next/link';
 import {
   Avatar,
-  AvatarGroup,
   Box,
   Container,
   Divider,
@@ -19,6 +19,7 @@ import CropIcon from '@mui/icons-material/Crop';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import LayersIcon from '@mui/icons-material/Layers';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import BottomNavigation from '../components/BottomNavigation';
 import Link from '../components/Link';
 import { fetchUser } from '../server/github';
@@ -70,7 +71,23 @@ const About = (props) => {
         <Typography variant='body1' gutterBottom>在 Scriptable 应用内使用可安装 <Link href='https://raw.githubusercontent.com/Honye/scriptable-scripts/master/dist/Scriptore.js'>Scriptore</Link> 脚本</Typography>
         <Typography variant='body1'>可通过捷径快速安装上述脚本。捷径除了可安装上述脚本外，还可以扫码、分享和剪贴板链接快速安装脚本</Typography>
         <br />
-        <Paper elevation={3}>
+        <Paper>
+          <List>
+            <ListItem
+              sx={{ color: 'inherit' }}
+              disablePadding
+              component={NextLink}
+              href="/upload"
+            >
+              <ListItemButton>
+                <ListItemIcon><CloudUploadIcon /></ListItemIcon>
+                <ListItemText primary="上传脚本" />
+                <ChevronRightIcon />
+              </ListItemButton>
+            </ListItem>
+          </List>
+        </Paper>
+        <Paper sx={{ mt: 2 }}>
           <List>
             <ListItem
               sx={{ color: 'inherit' }}
@@ -136,8 +153,7 @@ export const getServerSideProps = async ({ req, query }) => {
 
   const { token } = req.cookies;
   if (token) {
-    const user = await fetchUser({ token })
-      .then((resp) => resp.ok ? resp.json() : null);
+    const user = await fetchUser({ token });
     props.user = user;
   }
 
