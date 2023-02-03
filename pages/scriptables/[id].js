@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import {
   AppBar,
   Avatar,
@@ -106,7 +107,13 @@ const Detail = (props) => {
   }, [install, installed, open, shouldUpdate, update]);
 
   return (
-    <Box>
+    <Box
+      sx={{ pt: 'env(safe-area-inset-top)' }}
+    >
+      <Head>
+        <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover' />
+        <title>Scriptore - {data.name}</title>
+      </Head>
       <AppBar position='static'>
         <Toolbar>
           <IconButton
