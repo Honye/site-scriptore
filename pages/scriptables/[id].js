@@ -5,14 +5,20 @@ import {
   Divider,
   Icon,
   IconButton,
-  ListItemText, Toolbar, Typography
+  ListItemText,
+  Stack,
+  Toolbar,
+  Typography
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import Image from 'next/image';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { blueGrey } from '@mui/material/colors';
 import { widgets, modules, others } from '../../data/scripts';
+import { invoke } from '../../utils/bridge';
+import { compareVersions } from '../../utils/utils';
 import styles from './[id].module.css'
 
 /**
@@ -22,6 +28,82 @@ import styles from './[id].module.css'
 const Detail = (props) => {
   const { data } = props;
   const router = useRouter();
+  const [installed, setInstalled] = useState(null);
+  const [shouldUpdate, setShouldUpdate] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const onNativeInstalled = useCallback((e) => {
+    const list = e.detail;
+    for (const item of list) {
+      if (item.name === `${data.name}${data.type === 'module' ? '.module' : ''}.js`) {
+        setInstalled(item);
+        setShouldUpdate(
+          compareVersions(data.version || '0.0.0', item.version || '0.0.0') > 0
+        );
+        break;
+      }
+    }
+  }, [data]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    window.addEventListener(
+      'postInstalled',
+      onNativeInstalled,
+      { signal: controller.signal }
+    );
+    invoke('getInstalled');
+    return () => controller.abort();
+  }, [onNativeInstalled]);
+
+  const listener = useCallback((event) => {
+    const { code, data } = event.detail;
+    if (code === 'install-success' && data.name === props.data.name) {
+      window.removeEventListener('JWeb', listener);
+      setLoading(false);
+      setInstalled(data);
+      setShouldUpdate(false);
+    }
+  }, [props.data.name]);
+
+  const install = useCallback(() => {
+    const ua = navigator.userAgent;
+    if (/Safari/.test(ua)) {
+      location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
+    } else {
+      setLoading(true);
+      window.addEventListener('JWeb', listener);
+      invoke('install', data);
+    }
+  }, [data, listener]);
+
+  const open = useCallback(() => {
+    const { name, type } = data;
+    location.href = type === 'module'
+      ? `scriptable:///open/${encodeURIComponent(`${name}.module`)}`
+      : `scriptable:///run/${encodeURIComponent(name)}`;
+  }, [data]);
+
+  const update = useCallback(() => {
+    const ua = navigator.userAgent;
+    if (/Safari/.test(ua)) {
+      location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
+    } else {
+      setLoading(true);
+      window.addEventListener('JWeb', listener);
+      invoke('updateScript', data);
+    }
+  }, [data, listener]);
+
+  const onBtnClick = useCallback(() => {
+    if (shouldUpdate) {
+      update();
+    } else if (installed) {
+      open();
+    } else {
+      install();
+    }
+  }, [install, installed, open, shouldUpdate, update]);
 
   return (
     <Box>
@@ -68,11 +150,16 @@ const Detail = (props) => {
               primary={data.name}
               secondary={data.intro}
             />
-            <LoadingButton
-              sx={{ alignSelf: 'flex-start' }}
-              variant='contained'
-              size='small'
-            >v{data.version}</LoadingButton>
+            <Stack direction="row" alignItems="flex-end">
+              <LoadingButton
+                sx={{ alignSelf: 'flex-start' }}
+                variant='contained'
+                size='small'
+                loading={loading}
+                onClick={onBtnClick}
+              >{shouldUpdate ? '更新' : installed ? '打开' : '获取'}</LoadingButton>
+              <Typography ml={1} variant="caption">v{data.version}</Typography>
+            </Stack>
           </Box>
         </Box>
         {data.snapshots?.length && (
@@ -131,7 +218,7 @@ export const getStaticProps = ({ params }) => {
   if (widget) {
     return {
       props: {
-        data: widget
+        data: { type: 'widget', ...widget }
       },
     };
   }
@@ -139,7 +226,7 @@ export const getStaticProps = ({ params }) => {
   if (mod) {
     return {
       props: {
-        data: mod
+        data: { type: 'module', ...mod }
       },
     };
   }
@@ -147,7 +234,7 @@ export const getStaticProps = ({ params }) => {
   if (other) {
     return {
       props: {
-        data: other
+        data: { type: 'other', ...other }
       },
     };
   }
