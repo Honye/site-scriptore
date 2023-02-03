@@ -67,3 +67,9 @@ export const updateReference = async (params) => {
     body: JSON.stringify(data)
   });
 };
+
+export const getRepoContent = async (params, options) => {
+  const { owner, repo, path, ...data } = params;
+  const searchParams = new URLSearchParams(data);
+  return fetch(`/repos/${owner}/${repo}/contents/${path}?${searchParams.toString()}`, options);
+};
