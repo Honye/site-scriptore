@@ -154,6 +154,15 @@ export const widgets = [
       'widgets.module': 'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/widgets.module.js',
       'withSettings.module': 'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/withSettings.module.js'
     }
+  },
+  {
+    name: 'Wallhaven',
+    version: '1.0.0',
+    icon: 'wallpaper',
+    intro: 'Wallhaven 壁纸',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/Wallhaven.js'
+    ]
   }
 ];
 
