@@ -8,7 +8,11 @@ import {
   Box,
   Container,
   IconButton,
+  List,
+  ListItem,
+  ListItemText,
   Paper,
+  Popover,
   Slide,
   Stack,
   Toolbar,
@@ -31,10 +35,15 @@ const HideOnScroll = (props) => {
 };
 
 export default function Home(props) {
-  const { widgets, modules, others } = props;
+  const { version, widgets, modules, others } = props;
+  const [popoverEl, setPopoverEl] = useState(null);
   const [installedMap, setInstalledMap] = useState(null);
 
   const installedListener = (event) => setInstalledMap(event.detail);
+
+  const onMoreClick = (e) => setPopoverEl(e.currentTarget);
+
+  const onPopoverClose = () => setPopoverEl(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -96,9 +105,33 @@ export default function Home(props) {
               <HomeIcon />
             </IconButton>
             <Typography variant='h6' sx={{ flexGrow: 1 }}>Scriptore</Typography>
-            <IconButton size='large' edge='end' color='inherit'>
+            <IconButton
+              size='large'
+              edge='end'
+              color='inherit'
+              onClick={onMoreClick}
+            >
               <MoreIcon />
             </IconButton>
+            <Popover
+              anchorEl={popoverEl}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={!!popoverEl}
+              onClose={onPopoverClose}
+            >
+              <List>
+                <ListItem>
+                  <ListItemText secondary={`v${version}`} />
+                </ListItem>
+              </List>
+            </Popover>
           </Toolbar>
         </AppBar>
       </HideOnScroll>
@@ -128,6 +161,9 @@ export default function Home(props) {
 
 export const getStaticProps = () => {
   return {
-    props: getScripts(),
+    props: {
+      ...getScripts(),
+      version: process.env.npm_package_version
+    }
   };
 };
