@@ -5,10 +5,11 @@ import { getRepoContent } from '../../server/github';
  */
 const handler = async (req, res) => {
   const { author, name } = req.query;
+  const [owner, repo] = process.env.SCRIPTS_REPO.split('/');
   const files = await getRepoContent({
-    owner: 'Honye',
-    repo: 'applets-fly.io',
-    ref: 'develop',
+    owner,
+    repo,
+    ref: process.env.SCRIPTS_BRANCH,
     path: `scriptables/${author}/${name}`
   });
   const detail = {

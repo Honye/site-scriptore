@@ -235,11 +235,12 @@ const Detail = (props) => {
 /** @type {import('next').GetStaticProps<{data: import('../../../data/scripts').Script}, { id: string; name: string }>} */
 export const getStaticProps = async ({ params }) => {
   const { id: author, name } = params;
+  const [owner, repo] = process.env.SCRIPTS_REPO.split('/');
   const data = await getRepoContent(
     {
-      owner: 'Honye',
-      repo: 'applets-fly.io',
-      ref: 'develop',
+      owner,
+      repo,
+      ref: process.env.SCRIPTS_BRANCH,
       path: `scriptables/${author}/${name}/scriptable.json`
     },
     {

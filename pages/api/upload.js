@@ -34,10 +34,12 @@ const main = async (req, res) => {
     });
   });
   const files = Array.isArray(formFile) ? formFile : [formFile];
-  const repo = { owner: 'Honye', repo: 'applets-fly.io' };
+  const [owner, name] = process.env.SCRIPTS_REPO.split('/');
+  const repo = { owner, repo: name };
+  const branch = process.env.SCRIPTS_BRANCH;
   const folder = files[0].originalFilename.replace(/\.\w+$/, '');
   const [baseTree, ...blobs] = await Promise.all([
-    getTree({ ...repo, treeSHA: 'develop' }),
+    getTree({ ...repo, treeSHA: branch }),
     // 上传 author.json
     createBlob({
       ...repo,
@@ -99,9 +101,9 @@ const main = async (req, res) => {
       email: user.email
     },
   });
-  const reference = await updateReference({
+  await updateReference({
     ...repo,
-    ref: 'heads/develop',
+    ref: `heads/${branch}`,
     sha: commit.sha
   });
 

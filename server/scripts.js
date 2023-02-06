@@ -61,11 +61,12 @@ export const getScripts = () => {
 };
 
 const getScriptable = async ({ author, name }) => {
+  const [owner, repo] = process.env.SCRIPTS_REPO.split('/');
   return getRepoContent(
     {
-      owner: 'Honye',
-      repo: 'applets-fly.io',
-      ref: 'develop',
+      owner,
+      repo,
+      ref: process.env.SCRIPTS_BRANCH,
       path: `scriptables/${author}/${name}/scriptable.json`
     },
     {
@@ -77,10 +78,11 @@ const getScriptable = async ({ author, name }) => {
 };
 
 export const getRemoteScripts = async () => {
+  const [owner, repo] = process.env.SCRIPTS_REPO.split('/');
   const { tree } = await getTree({
-    owner: 'Honye',
-    repo: 'applets-fly.io',
-    treeSHA: 'develop',
+    owner,
+    repo,
+    treeSHA: process.env.SCRIPTS_BRANCH,
     recursive: '1'
   });
   const ret = {
