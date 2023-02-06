@@ -10,7 +10,7 @@ import {
 import BottomNavigation from '../components/BottomNavigation';
 import Item from '../components/UpdateItem';
 import { invoke } from '../utils/bridge';
-import { getScripts } from '../server/scripts';
+import { getRemoteScripts, getScripts } from '../server/scripts';
 import { compareVersions } from '../utils/utils';
 
 const Updates = (props) => {
@@ -53,7 +53,6 @@ const Updates = (props) => {
   }, [installed, modules, others, widgets]);
 
   useEffect(() => {
-    console.log('[Web] Updates page mounted');
     invoke('getInstalled');
     const controller = new AbortController();
     const listener = (event) => {
@@ -108,9 +107,15 @@ const Updates = (props) => {
   );
 };
 
-export const getStaticProps = () => {
+export const getStaticProps = async () => {
+  const remote = await getRemoteScripts();
+  const local = getScripts();
   return {
-    props: getScripts(),
+    props: {
+      widgets: [...remote.widgets, ...local.widgets],
+      modules: [...remote.modules, ...local.modules],
+      others: [...remote.others, ...local.others]
+    },
   };
 };
 

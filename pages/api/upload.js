@@ -74,6 +74,7 @@ const main = async (req, res) => {
       ...repo,
       content: JSON.stringify({
         version: fields.version || '0.0.0',
+        icon: fields.icon || undefined,
         brief: fields.brief || '',
         description: fields.description || '',
         whatIsNew: fields.whatIsNew || '',

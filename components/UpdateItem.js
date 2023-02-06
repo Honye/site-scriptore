@@ -79,7 +79,14 @@ const Item = (props) => {
       }
       disablePadding
     >
-      <ListItemButton component={Link} href={`/scriptables/${data.name}`}>
+      <ListItemButton
+        component={Link}
+        href={
+          data.author
+          ? `/scriptables/${data.author}/${data.name}${data.type === 'module' ? '.module' : ''}`
+          : `/scriptables/${data.name}`
+        }
+      >
         <ListItemAvatar>
           <Avatar
             sx={{ width: 44, height: 44, borderRadius: 2, bgcolor: data.bgcolor }}

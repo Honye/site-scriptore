@@ -52,6 +52,13 @@ export default function Upload() {
             placeholder="1.0.0"
           />
           <TextField
+            name="icon"
+            label="图标"
+            size="small"
+            margin="normal"
+            placeholder="Material Icon name"
+          />
+          <TextField
             name="brief"
             label="简述"
             size="small"
