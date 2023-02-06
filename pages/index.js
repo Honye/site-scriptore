@@ -22,7 +22,7 @@ import { useScrollTrigger } from '@mui/material';
 import SList from '../components/List';
 import BottomNavigation from '../components/BottomNavigation';
 import { invoke } from '../utils/bridge';
-import { getScripts } from '../server/scripts';
+import { getRemoteScripts, getScripts } from '../server/scripts';
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
@@ -159,10 +159,15 @@ export default function Home(props) {
   )
 }
 
-export const getStaticProps = () => {
+export const getStaticProps = async () => {
+  const scriptables = await getRemoteScripts();
+  const scripts = getScripts();
+
   return {
     props: {
-      ...getScripts(),
+      widgets: [...scriptables.widgets, ...scripts.widgets],
+      modules: [...scriptables.modules, ...scripts.modules],
+      others: [...scriptables.others, ...scripts.others],
       version: process.env.npm_package_version
     }
   };

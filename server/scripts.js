@@ -31,6 +31,9 @@ export const colors = [
 ];
 
 let scripts;
+/**
+ * @returns {Record<'widgets'|'modules'|'others', import('../data/scripts').Script[]>}
+ */
 export const getScripts = () => {
   const randomColor = () => colors[Math.floor(Math.random() * colors.length)][400];
 
@@ -62,16 +65,18 @@ const getScriptable = async ({ author, name }) => {
     {
       owner: 'Honye',
       repo: 'applets-fly.io',
+      ref: 'develop',
       path: `scriptables/${author}/${name}/scriptable.json`
     },
     {
       headers: {
         accept: 'application/vnd.github.raw+json',
       }
-    });
+    }
+  );
 };
 
-const getRemoveScripts = async () => {
+export const getRemoteScripts = async () => {
   const { tree } = await getTree({
     owner: 'Honye',
     repo: 'applets-fly.io',
@@ -83,25 +88,30 @@ const getRemoveScripts = async () => {
     modules: [],
     others: []
   };
+  const scriptablePromises = []
   for (const [i, item] of tree.entries()) {
     const matched = item.path.match(/^scriptables\/([^/]+)\/([^/]+)$/);
-    if (matched) {
+    if (matched && item.type === 'tree') {
       const [, author, name] = matched;
-      getScriptable({ author, name }).then((data) => {
-        if (/\.module$/.test(name)) {
-          ret.modules.push({
-            type: 'module',
+      scriptablePromises.push(
+        getScriptable({ author, name }).then((data) => {
+          const info = {
             name: name.replace(/\.module$/, ''),
+            icon: 'auto_fix_high',
+            author,
             ...data
-          });
-        } else {
-          ret.widgets.push({
-            type: 'widget',
-            name,
-            ...data
-          });
-        }
-      })
+          };
+          if (/\.module$/.test(name)) {
+            info.type = 'module';
+            ret.modules.push(info);
+          } else {
+            info.type = 'widget';
+            ret.widgets.push(info);
+          }
+        })
+      )
     }
   }
+  await Promise.all(scriptablePromises)
+  return ret;
 };

@@ -20,7 +20,7 @@ const ScriptableList = (props) => {
       }>
         {(list || []).map((item) => (
           <Item
-            key={item.name}
+            key={[item.author, item.name].join('/')}
             data={item}
             installed={installedList.find((el) =>
               item.type === 'module'

@@ -26,14 +26,22 @@ const Item = (props) => {
     }
   }, [props.data.name]);
 
-  const update = useCallback(() => {
+  const update = useCallback(async () => {
+    const { author, name, type } = data;
+    let script = data;
+    if (author) {
+      const detail = await fetch(`/api/detail?author=${author}&name=${name}${type === 'module' ? '.module' : ''}`)
+        .then((resp) => resp.json());
+      script = {...detail, ...data};
+    }
+
     const ua = navigator.userAgent;
     if (/Safari/.test(ua)) {
-      location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
+      location.href = `scriptable:///run/Installer?url=${encodeURIComponent(script.files[0])}`;
     } else {
       setLoading(true);
       window.addEventListener('JWeb', listener);
-      invoke('updateScript', data);
+      invoke('updateScript', script);
     }
   }, [data, listener]);
 
