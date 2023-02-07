@@ -160,8 +160,14 @@ export const widgets = [
     version: '1.0.0',
     icon: 'wallpaper',
     intro: 'Wallhaven 壁纸',
+    content: 'wallhaven.cc 壁纸。精美高清动漫壁纸，也有其他高质量的图片\n\n- 支持中英双语可视化配置\n- 支持 4 种排列方式\n- 自定义过滤搜索规则\n- 点击可查看和收藏\n\n限制级内容需填写个人账号 API Key\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/Wallhaven.js'
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Wallhaven_1.png',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Wallhaven_2.png',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Wallhaven_3.png'
     ]
   }
 ];
