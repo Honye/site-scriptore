@@ -175,9 +175,22 @@ export const widgets = [
     version: '1.1.0',
     icon: 'hub',
     intro: '星座运势',
-    content: '边框颜色默认显示运势幸运色，用户可以自定义\n\n修改边框颜色后可以通过重置恢复为幸运色',
+    content: '边框颜色默认显示运势幸运色，用户可以自定义\n\n修改边框颜色后可以通过重置恢复为幸运色\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@8e5067e45cb10fcf27873769e2572bc79c0998f9/dist/Astrology.js'
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@8e5067e45cb10fcf27873769e2572bc79c0998f9/docs/assets/Astrology_1.png'
+    ]
+  },
+  {
+    name: '星座屋',
+    version: '1.0.0',
+    icon: 'hub',
+    intro: '星座屋-星座运势',
+    content: '此版数据来源于星座屋\n\n由于不清楚有多少种幸运色，此版边框颜色不会使用幸运色\n\n',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/%E6%98%9F%E5%BA%A7%E5%B1%8B.js'
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@8e5067e45cb10fcf27873769e2572bc79c0998f9/docs/assets/Astrology_1.png'
