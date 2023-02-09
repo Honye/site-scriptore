@@ -172,12 +172,12 @@ export const widgets = [
   },
   {
     name: 'Astrology',
-    version: '1.2.0',
+    version: '1.2.1',
     icon: 'hub',
     intro: '星座运势',
     content: '边框颜色默认显示运势幸运色，用户可以自定义\n\n修改边框颜色后可以通过重置恢复为幸运色\n\n',
     files: [
-      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@62b11ada210466304174bba8bbc7f4f0b80d505c/dist/Astrology.js'
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@e32e95b7b6aaa7348b1c4c5c12073ce5e940360e/dist/Astrology.js'
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@8e5067e45cb10fcf27873769e2572bc79c0998f9/docs/assets/Astrology_1.png',
