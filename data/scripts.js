@@ -41,20 +41,21 @@ export const widgets = [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@e46010069ee777eae5a5976d13a5c12452b06927/dist/GitHub%20Contributions.js',
     ],
     snapshots: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/github_small_light.jpg',
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/github_medium_dark.jpg',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/GitHub_1.png',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/GitHub_2.png',
     ],
   },
   {
     name: 'CoinGecko',
     version: '1.2.2',
     icon: 'attach_money',
-    intro: '加密货币实时价格',
+    intro: '数字货币实时价格',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/CoinGecko.js'
     ],
     snapshots: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/coingecko.JPG'
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/CoinGecko_1.png',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/CoinGecko_2.png'
     ]
   },
   {
@@ -101,9 +102,13 @@ export const widgets = [
     version: '1.1.0',
     icon: 'paid',
     intro: 'iOS 每日限免和优惠应用',
+    content: 'iOS 和 MacOS 每日限免和优惠应用\n\n点击直达应用商店应用详情\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@e403141f397f42b0304ad5a68cfb3eb5924b4f59/dist/App%20%E9%99%90%E5%85%8D%E4%BC%98%E6%83%A0.js'
     ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/AppFree_1.png',
+    ]
   },
   {
     name: 'Shortcuts',
@@ -113,6 +118,9 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Shortcuts.js',
     ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Shortcuts_1.png',
+    ]
   },
   {
     name: '10010',
