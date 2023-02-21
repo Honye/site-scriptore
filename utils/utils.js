@@ -21,3 +21,16 @@ export const compareVersions = (v1, v2) => {
   }
   return 0;
 };
+
+export const debounce = (fn, { delay }) => {
+  let timer;
+  return function(...args) {
+    if (timer) clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      fn(...args);
+      clearTimeout(timer);
+      timer = null;
+    }, delay);
+  };
+};

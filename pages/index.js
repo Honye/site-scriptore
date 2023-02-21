@@ -18,6 +18,7 @@ import { useScrollTrigger } from '@mui/material';
 import SList from '../components/List';
 import BottomNavigation from '../components/BottomNavigation';
 import { invoke } from '../utils/bridge';
+import { debounce } from '../utils/utils';
 import { getScripts } from '../server/scripts';
 
 const HideOnScroll = (props) => {
@@ -45,6 +46,18 @@ export default function Home(props) {
     );
     invoke('getInstalled');
     return () => controller.abort();
+  }, []);
+
+  useEffect(() => {
+    const sessionScrollTop = sessionStorage.getItem('indexScrollTop');
+    if (sessionScrollTop) {
+      document.documentElement.scrollTop = sessionScrollTop;
+    }
+    const listener = debounce(() => {
+      sessionStorage.setItem('indexScrollTop', document.documentElement.scrollTop);
+    }, { delay: 150 });
+    document.addEventListener('scroll', listener);
+    return () => document.removeEventListener('scroll', listener);
   }, []);
 
   useEffect(() => {
