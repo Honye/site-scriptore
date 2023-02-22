@@ -204,6 +204,16 @@ export const widgets = [
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@8e5067e45cb10fcf27873769e2572bc79c0998f9/docs/assets/Astrology_1.png'
     ]
+  },
+  {
+    name: 'ChatGPT',
+    version: '1.0.0',
+    icon: 'ac_unit',
+    intro: 'AI 生成文本或图像',
+    content: '\n\n需要自备 OpenAI API Key\n\nAPI Key 可在 https://platform.openai.com 获取',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/ChatGPT.js'
+    ]
   }
 ];
 
