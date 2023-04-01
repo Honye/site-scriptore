@@ -214,6 +214,16 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@ff9918bab26d470bf89ea11bc3e4288d2461909a/dist/ChatGPT.js'
     ]
+  },
+  {
+    name: 'OpenAI',
+    version: '0.1.0',
+    icon: 'ac_unit',
+    intro: 'OpenAI 账户使用情况',
+    content: '\n\n需要填写 OpenAI API Key\n\n可在 https://platform.openai.com 获取',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/OpenAI.js'
+    ]
   }
 ];
 
