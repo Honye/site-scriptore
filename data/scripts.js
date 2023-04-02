@@ -217,14 +217,14 @@ export const widgets = [
   },
   {
     name: 'OpenAI',
-    version: '0.1.1',
+    version: '0.2.0',
     icon: 'ac_unit',
     intro: 'OpenAI 账户使用情况',
     content: '\n\nSession Key 需自行从网页 https://platform.openai.com/account/usage 抓取' +
       '\n\n抓取请求 https://api.openai.com/dashboard/billing/credit_grants 的请求头中的 Authorization' +
       '\n\n不要前面的 Bearer',
     files: [
-      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@362c4ebff47a0ab44570ea5d05ff11ef4a1ff11a/dist/OpenAI.js'
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@eaef09f541909665cc618003b6b07c8f4037c405/dist/OpenAI.js'
     ]
   }
 ];
