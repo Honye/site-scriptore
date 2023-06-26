@@ -226,6 +226,17 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@ff0746cfeceaa5d7c9c88357dd1fa0883a0b0743/dist/OpenAI.js'
     ]
+  },
+  {
+    name: 'Image Uploader',
+    version: '1.0.0',
+    intro: '上传图片到图床',
+    content: '\n\n上传图片到 SM.MS 图床' +
+      '\n\n支持查看历史上传记录' +
+      '\n\n可能需要科学上网',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/Image%20Uploader.js'
+    ]
   }
 ];
 
@@ -335,11 +346,11 @@ export const others = [
   },
   {
     name: 'Scriptore',
-    version: '0.2.0',
+    version: '1.0.0',
     icon: 'token',
     intro: 'Scriptable 脚本仓库',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@84310cb84314806a2c977b28e8028c0f99868209/dist/Scriptore.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@78395be43e72a02e86f0a7ce51ad8431f35e558c/dist/Scriptore.js',
     ],
   },
 ];
