@@ -20,6 +20,7 @@ import BottomNavigation from '../components/BottomNavigation';
 import { invoke } from '../utils/bridge';
 import { debounce } from '../utils/utils';
 import { getScripts } from '../server/scripts';
+import useDebounce from '../hooks/useDebounce'
 
 const HideOnScroll = (props) => {
   const { children, window } = props;
@@ -35,17 +36,20 @@ export default function Home(props) {
   const { widgets, modules, others } = props;
   const [installedMap, setInstalledMap] = useState(null);
 
-  const installedListener = (event) => setInstalledMap(event.detail);
+  const getInstalled = useDebounce(
+    () => {
+      invoke('getInstalled', {}, (e) => setInstalledMap(e))
+    },
+    { delay: 300 }
+  )
 
   useEffect(() => {
-    const controller = new AbortController();
-    window.addEventListener(
-      'postInstalled',
-      installedListener,
-      { signal: controller.signal }
-    );
-    invoke('getInstalled');
-    return () => controller.abort();
+    window.addEventListener('load', () => {
+      getInstalled()
+    })
+    getInstalled()
+    // FIXME 部署 SSR 后 getInstalled 未缓存，取消下一行注释后可复现
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -59,34 +63,6 @@ export default function Home(props) {
     document.addEventListener('scroll', listener);
     return () => document.removeEventListener('scroll', listener);
   }, []);
-
-  useEffect(() => {
-    let timer;
-    const controller = new AbortController();
-    const get = () => {
-      if (sessionStorage.getItem('installed')) {
-        timer && clearInterval(timer);
-      }
-      sessionStorage.setItem('installed', 'listened');
-      window.addEventListener(
-        'postInstalled',
-        installedListener,
-        { signal: controller.signal }
-      );
-      invoke('getInstalled');
-    };
-
-    if (!installedMap && !sessionStorage.getItem('installed')) {
-      timer = setInterval(() => get(), 200);
-    } else {
-      timer && clearInterval(timer);
-    }
-
-    return () => {
-      timer && clearInterval(timer);
-      controller.abort();
-    };
-  }, [installedMap]);
 
   return (
     <Box

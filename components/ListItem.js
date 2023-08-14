@@ -9,6 +9,7 @@ import {
   ListItemText,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import { invoke } from '../utils/bridge'
 
 const Item = (props) => {
   const { data } = props;
@@ -18,19 +19,8 @@ const Item = (props) => {
 
   useEffect(() => setInstalled(props.installed), [props.installed])
 
-  const invoke = (code, data) => {
-    window.dispatchEvent(
-      new CustomEvent(
-        'JBridge',
-        { detail: { code, data } }
-      )
-    )
-  };
-
-  const listener = (event) => {
-    const { code, data } = event.detail
-    if (code === 'install-success' && data.name === props.data.name) {
-      window.removeEventListener('JWeb', listener);
+  const listener = (data) => {
+    if (data.name === props.data.name) {
       setInstalled(true);
       setLoading(false)
     }
@@ -42,8 +32,7 @@ const Item = (props) => {
       location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
     } else {
       setLoading(true);
-      window.addEventListener('JWeb', listener);
-      invoke('install', data);
+      invoke('install', data, listener);
     }
   };
 
