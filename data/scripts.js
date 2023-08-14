@@ -359,7 +359,7 @@ export const others = [
     icon: 'token',
     intro: 'Scriptable 脚本仓库',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@78395be43e72a02e86f0a7ce51ad8431f35e558c/dist/Scriptore.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@9a50fdefef4359363106f616a04270ce5076f2ad/dist/Scriptore.js',
     ],
   },
 ];
