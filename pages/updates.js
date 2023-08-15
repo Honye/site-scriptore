@@ -53,18 +53,7 @@ const Updates = (props) => {
   }, [installed, modules, others, widgets]);
 
   useEffect(() => {
-    console.log('[Web] Updates page mounted');
-    invoke('getInstalled');
-    const controller = new AbortController();
-    const listener = (event) => {
-      setInstalled(event.detail);
-    };
-    window.addEventListener(
-      'postInstalled',
-      listener,
-      { signal: controller.signal }
-    );
-    return () => controller.abort();
+    invoke('getInstalled', {}, (data) => setInstalled(data));
   }, []);
 
   return (
