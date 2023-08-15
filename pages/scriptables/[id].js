@@ -33,8 +33,7 @@ const Detail = (props) => {
   const [shouldUpdate, setShouldUpdate] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const onNativeInstalled = useCallback((e) => {
-    const list = e.detail;
+  const onNativeInstalled = useCallback((list) => {
     for (const item of list) {
       if (item.name === `${data.name}${data.type === 'module' ? '.module' : ''}.js`) {
         setInstalled(item);
@@ -47,20 +46,11 @@ const Detail = (props) => {
   }, [data]);
 
   useEffect(() => {
-    const controller = new AbortController();
-    window.addEventListener(
-      'postInstalled',
-      onNativeInstalled,
-      { signal: controller.signal }
-    );
-    invoke('getInstalled');
-    return () => controller.abort();
+    invoke('getInstalled', {}, onNativeInstalled);
   }, [onNativeInstalled]);
 
-  const listener = useCallback((event) => {
-    const { code, data } = event.detail;
-    if (code === 'install-success' && data.name === props.data.name) {
-      window.removeEventListener('JWeb', listener);
+  const listener = useCallback((data) => {
+    if (data.name === props.data.name) {
       setLoading(false);
       setInstalled(data);
       setShouldUpdate(false);
@@ -73,8 +63,7 @@ const Detail = (props) => {
       location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
     } else {
       setLoading(true);
-      window.addEventListener('JWeb', listener);
-      invoke('install', data);
+      invoke('install', data, listener);
     }
   }, [data, listener]);
 
@@ -91,8 +80,7 @@ const Detail = (props) => {
       location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
     } else {
       setLoading(true);
-      window.addEventListener('JWeb', listener);
-      invoke('updateScript', data);
+      invoke('updateScript', data, listener);
     }
   }, [data, listener]);
 
