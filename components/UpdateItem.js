@@ -17,10 +17,8 @@ const Item = (props) => {
   const [loading, setLoading] = useState(false);
   const [updated, setUpdated] = useState(false);
 
-  const listener = useCallback((event) => {
-    const { code, data } = event.detail;
-    if (code === 'install-success' && data.name === props.data.name) {
-      window.removeEventListener('JWeb', listener);
+  const listener = useCallback((data) => {
+    if (data.name === props.data.name) {
       setLoading(false);
       setUpdated(true);
     }
@@ -32,8 +30,7 @@ const Item = (props) => {
       location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
     } else {
       setLoading(true);
-      window.addEventListener('JWeb', listener);
-      invoke('updateScript', data);
+      invoke('updateScript', data, listener);
     }
   }, [data, listener]);
 
