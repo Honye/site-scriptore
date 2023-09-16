@@ -237,6 +237,16 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/Image%20Uploader.js'
     ]
+  },
+  {
+    name: '掘金',
+    version: '1.1.0',
+    intro: '掘金文章列表',
+    content: '\n\n掘金文章订阅' +
+      '\n\n支持指定文章分类',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@742ce0b79b26305a28607fe022fa4bb226f93b8d/dist/Juejin.js'
+    ]
   }
 ];
 
