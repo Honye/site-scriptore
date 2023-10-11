@@ -60,11 +60,11 @@ export const widgets = [
   },
   {
     name: 'Calendar',
-    version: '1.4.3',
+    version: '1.4.4',
     icon: 'calendar_month',
     intro: '和 Apple 日历一样美观的日历，农历显示，可作为打卡日历',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@74c2ba32101f5600437d8eeb5ec3b9dad91fc837/dist/Calendar.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@da86b9d54022c215c98ef9db0af2a1c11d294ecd/dist/Calendar.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/calendar.jpeg',
