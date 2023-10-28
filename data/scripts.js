@@ -137,11 +137,11 @@ export const widgets = [
   },
   {
     name: '湖北联通',
-    version: '1.3.0',
+    version: '1.3.1',
     icon: 'phone_iphone',
     intro: '湖北联通余额信息',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@c56f59130e33a42d98626bb7a832e81d502a8de5/dist/%E6%B9%96%E5%8C%97%E8%81%94%E9%80%9A.js'
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@804061d95509860a8d6727b75692289cbf165355/dist/%E6%B9%96%E5%8C%97%E8%81%94%E9%80%9A.js'
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/10010_small_light.jpg',
