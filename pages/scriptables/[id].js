@@ -6,7 +6,10 @@ import {
   Divider,
   Icon,
   IconButton,
+  ListItemIcon,
   ListItemText,
+  Menu,
+  MenuItem,
   Stack,
   Toolbar,
   Typography
@@ -14,6 +17,8 @@ import {
 import { LoadingButton } from '@mui/lab';
 import Image from 'next/image';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import MoreIcon from '@mui/icons-material/MoreVert';
+import HomeIcon from '@mui/icons-material/Home';
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { blueGrey } from '@mui/material/colors';
@@ -57,6 +62,12 @@ const Detail = (props) => {
     }
   }, [props.data.name]);
 
+  const [anchorEl, setAnchorEl] = useState(null);
+  const onMoreClick = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+  const onClose = () => setAnchorEl(null);
+
   const install = useCallback(() => {
     const ua = navigator.userAgent;
     if (/Safari/.test(ua)) {
@@ -94,6 +105,10 @@ const Detail = (props) => {
     }
   }, [install, installed, open, shouldUpdate, update]);
 
+  const toHome = useCallback(() => {
+    router.push('/');
+  }, [router]);
+
   return (
     <Box
       sx={{ pt: 'env(safe-area-inset-top)' }}
@@ -113,6 +128,21 @@ const Detail = (props) => {
             <ArrowBackIcon />
           </IconButton>
           <Typography variant='h6' sx={{ flexGrow: 1 }}>{data.name}</Typography>
+          <IconButton size='large' edge='end' color='inherit' onClick={onMoreClick}>
+            <MoreIcon />
+          </IconButton>
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={onClose}
+          >
+            <MenuItem onClick={toHome}>
+              <ListItemIcon>
+                <HomeIcon fontSize='small' />
+              </ListItemIcon>
+              首页
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
       <Container maxWidth='sm'>
