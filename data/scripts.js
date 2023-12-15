@@ -46,6 +46,14 @@ export const widgets = [
     ],
   },
   {
+    name: 'GitHub Profile',
+    version: '1.0.0',
+    intro: 'GitHub 个人主页小组件',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@1f0918383724cbf464bd2554a153ee7de9ff1663/dist/GitHub%20Profile.js',
+    ]
+  },
+  {
     name: 'CoinGecko',
     version: '1.2.2',
     icon: 'attach_money',
