@@ -298,12 +298,13 @@ export const modules = [
   },
   {
     name: 'withSettings',
-    version: '1.5.2',
+    version: '1.6.0',
     icon: 'dashboard',
     intro: '轻松实现可视化配置',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@ef8a9792b048d130381ed7555df9f9713f19cb39/src/withSettings.module.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@b847116ed8a6f33ba4d33a95c1922dab29f479c4/src/withSettings.module.js',
     ],
+    content: '\n\n切换主题后可修改不同主题的配置'
   },
   {
     name: 'widgets',
