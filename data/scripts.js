@@ -47,10 +47,10 @@ export const widgets = [
   },
   {
     name: 'GitHub Profile',
-    version: '1.0.0',
+    version: '1.0.1',
     intro: 'GitHub 个人主页小组件',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@1f0918383724cbf464bd2554a153ee7de9ff1663/dist/GitHub%20Profile.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@9a6e1b3f5791df1f56fa179da2cbfa3f9922142b/dist/GitHub%20Profile.js',
     ]
   },
   {
