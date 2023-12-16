@@ -4,18 +4,18 @@
 export const widgets = [
   {
     name: 'Weibo',
-    version: '2.3.0',
+    version: '2.4.0',
     icon: 'whatshot',
     intro: '微博热搜',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@1bbe3ea71a929fe70fd2b3c131b20ec48c8b4677/dist/Weibo.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@cf97c6b16bdd36865c6f6ea8809f7f9654f10880/dist/Weibo.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Weibo_1.jpg',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Weibo_2.jpg',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Weibo_3.jpg',
     ],
-    content: '微博热搜小组件\n\n- 支持中英双语\n- 可自定义背景、色彩和尺寸等\n\n编辑小组件时填入 `dark` 或 `light` 可固定为深/浅色模式\n\n'
+    content: '微博热搜小组件\n\n- 支持中英双语\n- 可自定义背景、色彩和尺寸等\n\n编辑小组件时填入 `dark` 或 `light` 可固定为深/浅色模式\n\n切换至深（浅）色模式可修改深（浅）色模式下颜色配置\n\n'
   },
   {
     name: 'Photos',
