@@ -48,12 +48,12 @@ export const widgets = [
   },
   {
     name: 'GitHub Profile',
-    version: '1.1.0',
+    version: '1.1.1',
     icon: 'account_circle',
     bgcolor: '#bdbdbd',
     intro: 'GitHub 个人主页小组件',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@c02c73401b99e58bc887357381f124321fdf0691/dist/GitHub%20Profile.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@aa7cb420b7c8529cbfe365d96834135c1f51d839/dist/GitHub%20Profile.js',
     ]
   },
   {
