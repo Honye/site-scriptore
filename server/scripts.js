@@ -12,7 +12,7 @@ import {
   grey,
   blueGrey,
 } from '@mui/material/colors';
-import { widgets, modules, others } from '../data/scripts';
+import { widgets, modules, others, deprecated } from '../data/scripts';
 
 export const colors = [
   red,
@@ -47,6 +47,11 @@ export const getScripts = () => {
       })),
       others: others.map((item) => ({
         type: 'other',
+        bgcolor: randomColor(),
+        ...item,
+      })),
+      deprecated: deprecated.map((item) => ({
+        type: 'deprecated',
         bgcolor: randomColor(),
         ...item,
       })),

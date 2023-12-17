@@ -36,6 +36,7 @@ export const widgets = [
   {
     name: 'GitHub Contributions',
     version: '1.4.0',
+    icon: 'apps',
     intro: 'GitHub 贡献网格图',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@e46010069ee777eae5a5976d13a5c12452b06927/dist/GitHub%20Contributions.js',
@@ -48,6 +49,8 @@ export const widgets = [
   {
     name: 'GitHub Profile',
     version: '1.1.0',
+    icon: 'account_circle',
+    bgcolor: '#bdbdbd',
     intro: 'GitHub 个人主页小组件',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@c02c73401b99e58bc887357381f124321fdf0691/dist/GitHub%20Profile.js',
@@ -184,20 +187,6 @@ export const widgets = [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Wallhaven_1.png',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Wallhaven_2.png',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Wallhaven_3.png'
-    ]
-  },
-  {
-    name: 'Astrology',
-    version: '1.2.3',
-    icon: 'hub',
-    intro: '星座运势',
-    content: '边框颜色默认显示运势幸运色，用户可以自定义\n\n修改边框颜色后可以通过重置恢复为幸运色\n\n支持通过修改文字大小调整整体内容大小\n\n',
-    files: [
-      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@e8babcfcd16040cc317528a7721f68a5f6f5595c/dist/Astrology.js'
-    ],
-    snapshots: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@8e5067e45cb10fcf27873769e2572bc79c0998f9/docs/assets/Astrology_1.png',
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Astrology_2.png'
     ]
   },
   {
@@ -383,6 +372,24 @@ export const others = [
   },
 ];
 
+/** @type {Script[]} */
+export const deprecated = [
+  {
+    name: 'Astrology',
+    version: '1.2.3',
+    icon: 'hub',
+    intro: '星座运势',
+    content: '边框颜色默认显示运势幸运色，用户可以自定义\n\n修改边框颜色后可以通过重置恢复为幸运色\n\n支持通过修改文字大小调整整体内容大小\n\n',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@e8babcfcd16040cc317528a7721f68a5f6f5595c/dist/Astrology.js'
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@8e5067e45cb10fcf27873769e2572bc79c0998f9/docs/assets/Astrology_1.png',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Astrology_2.png'
+    ],
+  },
+];
+
 /**
  * @typedef {object} Script
  * @property {string} name
@@ -393,5 +400,6 @@ export const others = [
  * @property {string[]} [snapshots] 预览图链接
  * @property {string} [content] 详细说明
  * @property {string} [icon] Material Icon
+ * @property {string} [bgcolor] 背景色
  * @property {string} [background] 背景
  */

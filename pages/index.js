@@ -33,7 +33,7 @@ const HideOnScroll = (props) => {
 };
 
 export default function Home(props) {
-  const { widgets, modules, others } = props;
+  const { widgets, modules, others, deprecated } = props;
   const [installedMap, setInstalledMap] = useState(null);
 
   const getInstalled = useDebounce(
@@ -96,6 +96,7 @@ export default function Home(props) {
           <SList title='桌面组件' list={widgets} installedList={installedMap || []} />
           <SList title='模块' list={modules} installedList={installedMap || []} />
           <SList title='其他' list={others} installedList={installedMap || []} />
+          <SList title='已过时' list={deprecated} installedList={installedMap || []} />
         </Stack>
       </Container>
       <Paper

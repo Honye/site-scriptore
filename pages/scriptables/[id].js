@@ -157,7 +157,7 @@ const Detail = (props) => {
             sx={{
               mr: 1.5,
               borderRadius: 2,
-              bgcolor: blueGrey['400'],
+              bgcolor: data.bgcolor || blueGrey['400'],
               width: 100,
               height: 100
             }}
