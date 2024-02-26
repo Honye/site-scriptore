@@ -123,11 +123,11 @@ export const widgets = [
   },
   {
     name: 'Shortcuts',
-    version: '1.1.0',
+    version: '1.2.1',
     icon: 'app_shortcut',
     intro: '日历和快捷方式',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Shortcuts.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@6e9fe966a478fd8c0aade0b5920fb1b98425a315/dist/Shortcuts.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Shortcuts_1.png',
