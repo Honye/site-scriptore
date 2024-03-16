@@ -109,6 +109,17 @@ export const widgets = [
     ],
   },
   {
+    name: 'Xiaohongshu',
+    version: '1.0.0',
+    icon: '',
+    intro: '小红书热榜小组件',
+    content: '小红书热搜榜单小组件',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Xiaohongshu.js',
+    ],
+    snapshots: [],
+  },
+  {
     name: 'App 限免优惠',
     version: '1.1.0',
     icon: 'paid',
