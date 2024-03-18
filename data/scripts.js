@@ -110,12 +110,12 @@ export const widgets = [
   },
   {
     name: 'Xiaohongshu',
-    version: '1.0.0',
+    version: '1.0.1',
     icon: '',
     intro: '小红书热榜小组件',
     content: '小红书热搜榜单小组件',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Xiaohongshu.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@59f19972e51c4c768d9d59ba81d98cb78787e6f4/dist/Xiaohongshu.js',
     ],
     snapshots: [],
   },
