@@ -289,11 +289,11 @@ export const modules = [
   },
   {
     name: 'Bridge',
-    version: '1.0.2',
+    version: '1.0.3',
     icon: 'coronavirus',
     intro: 'Scriptable 与 WebView 的通信桥梁',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/Bridge.module.js'
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@4e1d3560b76088dd3805b92ecf7c19fdaa64307a/src/Bridge.module.js'
     ]
   },
   {
