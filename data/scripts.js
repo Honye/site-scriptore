@@ -352,12 +352,12 @@ export const others = [
   },
   {
     name: 'Clean Files 2',
-    version: '2.1.1',
+    version: '2.2.0',
     icon: 'folder_open',
     intro: 'Clean Files 的升级版',
     content: 'Scriptable 专用文件管理\n\n可用于清理长时间使用的缓存文件和开发调试\n\n可分享文件和导入替换文件\n\n',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@2e038bf228a4dd82c6a8fe1eaedaea8b203caed6/dist/Clean%20Files%202.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@60daf0826b7e9250d42c0848a210c5c34d490eaf/dist/Clean%20Files%202.js',
     ],
   },
   {
