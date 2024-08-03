@@ -255,6 +255,15 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@742ce0b79b26305a28607fe022fa4bb226f93b8d/dist/Juejin.js'
     ]
+  },
+  {
+    name: 'Olympics',
+    version: '1.0.0',
+    intro: '2024 巴黎奥运会奖牌榜',
+    content: '2024 巴黎奥运会奖牌榜',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/Olympics.js'
+    ]
   }
 ];
 
