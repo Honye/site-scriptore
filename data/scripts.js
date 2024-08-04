@@ -258,11 +258,11 @@ export const widgets = [
   },
   {
     name: 'Olympics',
-    version: '1.1.0',
+    version: '1.1.1',
     intro: '2024 巴黎奥运会奖牌榜',
     content: '2024 巴黎奥运会奖牌榜',
     files: [
-      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@f51437dd200ebd9a096245ada02d9a2e3880fd3b/dist/Olympics.js'
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@faef8648c484cbf2dcb05e6bf54c3e89d01bdb01/dist/Olympics.js'
     ]
   }
 ];
