@@ -263,7 +263,11 @@ export const widgets = [
     content: '2024 巴黎奥运会奖牌榜',
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@7ccaf025689028f87dd90ff559f65a284f2d7667/dist/Olympics.js'
-    ]
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Olympics_1.png',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Olympics_2.png',
+    ],
   }
 ];
 
