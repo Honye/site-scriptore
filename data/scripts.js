@@ -386,6 +386,15 @@ export const others = [
     ]
   },
   {
+    name: 'Widget Sizes',
+    version: '1.0.0',
+    icon: 'splitscreen_portrait',
+    intro: '桌面小组件尺寸和位置计算',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Widget%20Sizes.js'
+    ]
+  },
+  {
     name: 'Scriptore',
     version: '1.0.1',
     icon: 'token',
