@@ -201,6 +201,14 @@ export const widgets = [
     ]
   },
   {
+    name: 'Sinopec',
+    version: '0.0.1',
+    intro: '中国石化油价小组件',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/Sinopec.js'
+    ]
+  },
+  {
     name: '星座屋',
     version: '1.0.0',
     icon: 'hub',
