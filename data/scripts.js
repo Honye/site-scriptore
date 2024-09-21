@@ -292,11 +292,11 @@ export const modules = [
   },
   {
     name: 'utils',
-    version: '1.0.0',
+    version: '1.1.0',
     icon: 'handyman',
     intro: '工具集',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/utils.module.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@4b78bd7178c7c0e559bc88fcece3a558168f16f9/src/utils.module.js',
     ],
   },
   {
