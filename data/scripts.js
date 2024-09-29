@@ -4,11 +4,11 @@
 export const widgets = [
   {
     name: 'Weibo',
-    version: '2.4.1',
+    version: '2.4.2',
     icon: 'whatshot',
     intro: '微博热搜',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@87b24937c7f83053092505214dcc407f46a672a2/dist/Weibo.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@b264471a569c04be8aa06283f980092a04c902f5/dist/Weibo.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Weibo_1.jpg',
