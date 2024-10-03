@@ -202,11 +202,14 @@ export const widgets = [
   },
   {
     name: 'Sinopec',
-    version: '1.0.0',
+    version: '1.0.1',
     icon: 'local_gas_station',
     intro: '中国石化油价小组件',
     files: [
-      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@c7b52bc17d008c7478645393f4e4e7e81e252a73/dist/Sinopec.js'
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@ff42a9ce1d4ed4d971ef8c43b00388cd32ed59c4/dist/Sinopec.js'
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Sinopec_1.png',
     ]
   },
   {
