@@ -27,7 +27,7 @@ const Item = (props) => {
   const update = useCallback(() => {
     const ua = navigator.userAgent;
     if (/Safari/.test(ua)) {
-      location.href = `scriptable:///run/Installer?url=${encodeURIComponent(data.files[0])}`;
+      location.href = `scriptable:///run/Scriptore?url=${encodeURIComponent(data.files[0])}`;
     } else {
       setLoading(true);
       invoke('updateScript', data, listener);

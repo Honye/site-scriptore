@@ -67,9 +67,9 @@ const About = (props) => {
           >{ user?.login || '未登录' }</Typography>
         </Stack>
         <Typography variant='body1' gutterBottom>Scriptore 是一个 Scriptable 脚本仓库</Typography>
-        <Typography variant='body1' gutterBottom>使用浏览器访问时需要安装 <Link href='https://raw.githubusercontent.com/Honye/scriptable-scripts/master/dist/Installer.js'>Installer</Link> 脚本才能正常使用</Typography>
         <Typography variant='body1' gutterBottom>在 Scriptable 应用内使用可安装 <Link href='https://raw.githubusercontent.com/Honye/scriptable-scripts/master/dist/Scriptore.js'>Scriptore</Link> 脚本</Typography>
-        <Typography variant='body1'>可通过捷径快速安装上述脚本。捷径除了可安装上述脚本外，还可以扫码、分享和剪贴板链接快速安装脚本</Typography>
+        <Typography variant='body1' gutterBottom>使用浏览器访问时同样需要安装 <Link href='https://raw.githubusercontent.com/Honye/scriptable-scripts/master/dist/Scriptore.js'>Scriptore</Link> 脚本才能正常使用</Typography>
+        <Typography variant='body1'>可通过快捷指令快速安装上述脚本。快捷指令除了可安装上述脚本外，还可以通过扫码、分享和剪贴板链接快速安装脚本</Typography>
         <br />
         <Paper>
           <List>
@@ -110,7 +110,7 @@ const About = (props) => {
             >
               <ListItemButton>
                 <ListItemIcon><LayersIcon /></ListItemIcon>
-                <ListItemText primary="脚本安装器（捷径）" secondary="通过链接分享菜单、剪贴板链接、链接二维码扫描安装脚本" />
+                <ListItemText primary="脚本安装器（快捷指令）" secondary="通过链接分享菜单、剪贴板链接、链接二维码扫描安装脚本" />
                 <ChevronRightIcon />
               </ListItemButton>
             </ListItem>
