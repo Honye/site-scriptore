@@ -159,17 +159,17 @@ export const widgets = [
   },
   {
     name: '湖北联通',
-    version: '1.3.2',
+    version: '2.0.0',
     icon: 'phone_iphone',
     intro: '湖北联通余额信息',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@2e066e07dc92613fe845ffae42b69a1c4a559144/dist/%E6%B9%96%E5%8C%97%E8%81%94%E9%80%9A.js'
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@4f44a28c57ea1d0dc3dca51033803905e69c4ebe/dist/%E6%B9%96%E5%8C%97%E8%81%94%E9%80%9A.js'
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/10010_small_light.jpg',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/10010_small_dark.jpg',
     ],
-    content: `之前的 10010 组件只能显示已使用的流量信息，使用湖北联通显示的是剩余的流量\n\n数据来源于公众号【湖北联通】`,
+    content: `之前的 10010 组件只能显示已使用的流量信息，使用湖北联通显示的是剩余的流量\n\n数据来源于公众号【湖北联通】\n\n原创 UI，修改套用请注明来源`,
   },
   {
     name: 'Matrix',
