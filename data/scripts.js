@@ -280,6 +280,15 @@ export const widgets = [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Olympics_1.png',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Olympics_2.png',
     ],
+  },
+  {
+    name: 'SGCC',
+    version: '1.0.0',
+    intro: '网上国网',
+    content: '网上国网小组件',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/SGCC.js'
+    ]
   }
 ];
 
