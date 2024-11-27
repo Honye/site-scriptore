@@ -106,7 +106,7 @@ const About = (props) => {
               sx={{ color: 'inherit' }}
               disablePadding
               component={Link}
-              href='https://www.icloud.com/shortcuts/b9e6d5140d7547baaca52ca2ce382f3e'
+              href='https://www.icloud.com/shortcuts/feaba7c97d0c4d0e8f60d246d2359402'
             >
               <ListItemButton>
                 <ListItemIcon><LayersIcon /></ListItemIcon>
