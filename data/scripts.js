@@ -283,11 +283,11 @@ export const widgets = [
   },
   {
     name: 'SGCC',
-    version: '1.1.1',
+    version: '1.2.0',
     intro: '网上国网',
     content: '网上国网小组件',
     files: [
-      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@d162d16a4f173bd116b8df855c8d0bde84fb32f3/dist/SGCC.js'
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@a8590232b933d463982d0de3eb47c805cee5fa38/dist/SGCC.js'
     ]
   }
 ];
