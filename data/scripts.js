@@ -338,7 +338,11 @@ export const modules = [
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@96eed3a59aba5e2d8bc988a1211e0f47fcce50a3/src/withSettings.module.js',
     ],
-    content: '轻松便捷实现 Scriptable 小组件可视化配置\n\n切换主题后可修改不同主题的配置'
+    content: '轻松便捷实现 Scriptable 小组件可视化配置\n\n切换主题后可修改不同主题的配置',
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/withSettings_light.png',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/withSettings_dark.png'
+    ]
   },
   {
     name: 'widgets',
