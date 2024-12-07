@@ -34,6 +34,16 @@ export const widgets = [
     content: '新建相册后在桌面编辑组件时输入创建的相册名\n\n设置透明背景后可实现 PNG 透明效果\n\n',
   },
   {
+    name: 'Photo',
+    version: '1.0.0',
+    icon: 'photo_library',
+    intro: '图片和中华日历展示小组件',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Photo.js'
+    ],
+    content: '图片和中华日历展示小组件\n\n添加到桌面前需先在 APP 内运行选择图片\n\n有使用特殊字体“华康勘亭流”，可下载相关字体或者清空字体配置\n\n'
+  },
+  {
     name: 'GitHub Contributions',
     version: '1.4.0',
     icon: 'apps',
