@@ -35,11 +35,11 @@ export const widgets = [
   },
   {
     name: 'Photo',
-    version: '1.0.0',
+    version: '1.0.1',
     icon: 'photo_library',
     intro: '图片和中华日历展示小组件',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Photo.js'
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@981823c586ea98d042f089972dbe298f0580f301/dist/Photo.js'
     ],
     content: '图片和中华日历展示小组件\n\n添加到桌面前需先在 APP 内运行选择图片\n\n有使用特殊字体“华康勘亭流”，可下载相关字体或者清空字体配置\n\n'
   },
