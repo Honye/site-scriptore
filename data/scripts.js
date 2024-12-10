@@ -338,11 +338,11 @@ export const modules = [
   },
   {
     name: 'withSettings',
-    version: '1.7.1',
+    version: '1.7.2',
     icon: 'dashboard',
     intro: '轻松实现可视化配置',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@e7ad7596805443388c24a01944bf62533ea11318/src/withSettings.module.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@e2151b28ead465d40a15c57ec5a0f75f1d178987/src/withSettings.module.js',
     ],
     content: '轻松便捷实现 Scriptable 小组件可视化配置\n\n切换主题后可修改不同主题的配置',
     snapshots: [
