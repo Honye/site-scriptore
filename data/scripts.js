@@ -108,11 +108,11 @@ export const widgets = [
   },
   {
     name: 'Douban',
-    version: '1.1.0',
+    version: '1.1.1',
     icon: 'movie',
     intro: '豆瓣每日电影',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@df64e29265e9d18961a7c290e536e6e8161b3e7d/dist/Douban.js',
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@bffe39298db9cb47705e4bfed32a08bcb8763787/dist/Douban.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Douban_1.png',
