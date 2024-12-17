@@ -254,17 +254,6 @@ export const widgets = [
     ]
   },
   {
-    name: 'Image Uploader',
-    version: '1.0.0',
-    intro: '上传图片到图床',
-    content: '\n\n上传图片到 SM.MS 图床' +
-      '\n\n支持查看历史上传记录' +
-      '\n\n可能需要科学上网',
-    files: [
-      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/Image%20Uploader.js'
-    ]
-  },
-  {
     name: '掘金',
     version: '1.1.0',
     intro: '掘金文章列表',
@@ -423,6 +412,17 @@ export const others = [
     intro: '桌面小组件尺寸和位置计算',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@7d634d67dfdd699f67ed7d117a264395f157eb26/dist/Widget%20Sizes.js'
+    ]
+  },
+  {
+    name: 'Image Uploader',
+    version: '1.0.0',
+    intro: '上传图片到图床',
+    content: '\n\n上传图片到 SM.MS 图床' +
+      '\n\n支持查看历史上传记录' +
+      '\n\n可能需要科学上网',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/Image%20Uploader.js'
     ]
   },
   {
