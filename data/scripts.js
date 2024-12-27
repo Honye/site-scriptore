@@ -284,6 +284,15 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@39e3737fdae390aadd25d5f546a03f54c675375b/dist/SGCC.js'
     ]
+  },
+  {
+    name: '财联社电报',
+    version: '1.0.0',
+    intro: '财联社电报',
+    content: '财联社电报小组件\n\n由 @Yeetouu 投稿\n\n',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/%E8%B4%A2%E8%81%94%E7%A4%BE%E7%94%B5%E6%8A%A5.js'
+    ]
   }
 ];
 
