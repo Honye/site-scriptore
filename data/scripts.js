@@ -287,7 +287,7 @@ export const widgets = [
   },
   {
     name: '财联社电报',
-    version: '1.0.0',
+    version: '1.0.1',
     intro: '财联社电报',
     content: '财联社电报小组件\n\n由 @Yeetouu 投稿\n\n',
     files: [
