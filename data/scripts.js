@@ -6,7 +6,7 @@ export const widgets = [
     name: 'Weibo',
     version: '2.4.2',
     icon: 'whatshot',
-    intro: '微博热搜',
+    intro: '微博热搜小组件',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@b264471a569c04be8aa06283f980092a04c902f5/dist/Weibo.js',
     ],
@@ -15,13 +15,13 @@ export const widgets = [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Weibo_2.jpg',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Weibo_3.jpg',
     ],
-    content: '微博热搜小组件\n\n- 支持中英双语\n- 可自定义背景、色彩和尺寸等\n\n编辑小组件时填入 `dark` 或 `light` 可固定为深/浅色模式\n\n切换至深（浅）色模式可修改深（浅）色模式下颜色配置\n\n'
+    content: 'Scriptable 微博热搜小组件\n\n- 支持中英双语\n- 可自定义背景、色彩和尺寸等\n\n编辑小组件时填入 `dark` 或 `light` 可固定为深/浅色模式\n\n切换至深（浅）色模式可修改深（浅）色模式下颜色配置\n\n'
   },
   {
     name: 'Photos',
     version: '1.1.0',
     icon: 'photo_library',
-    intro: '支持多相册的桌面组件',
+    intro: '支持多相册的桌面小组件',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@a18290cf5823e6ab4c5644e9352f79cfe16e25bc/dist/Photos.js',
     ],
@@ -31,7 +31,7 @@ export const widgets = [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/IMG_1570.PNG',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Photos_1.png',
     ],
-    content: '新建相册后在桌面编辑组件时输入创建的相册名\n\n设置透明背景后可实现 PNG 透明效果\n\n',
+    content: '支持多相册的桌面小组件\n\n新建相册后在桌面编辑组件时输入创建的相册名\n\n设置透明背景后可实现 PNG 透明效果\n\n',
   },
   {
     name: 'Photo',
@@ -47,7 +47,7 @@ export const widgets = [
     name: 'GitHub Contributions',
     version: '1.4.0',
     icon: 'apps',
-    intro: 'GitHub 贡献网格图',
+    intro: 'GitHub 贡献网格图小组件',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@e46010069ee777eae5a5976d13a5c12452b06927/dist/GitHub%20Contributions.js',
     ],
@@ -55,6 +55,7 @@ export const widgets = [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/GitHub_1.png',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/GitHub_2.png',
     ],
+    content: 'Scriptable GitHub 贡献网格图小组件\n\n'
   },
   {
     name: 'GitHub Profile',
@@ -64,20 +65,22 @@ export const widgets = [
     intro: 'GitHub 个人主页小组件',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@aa7cb420b7c8529cbfe365d96834135c1f51d839/dist/GitHub%20Profile.js',
-    ]
+    ],
+    content: 'Scriptable GitHub 个人主页信息小组件\n\n'
   },
   {
     name: 'CoinGecko',
     version: '1.2.2',
     icon: 'attach_money',
-    intro: '数字货币实时价格',
+    intro: '数字货币实时价格小组件',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/CoinGecko.js'
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/CoinGecko_1.png',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/CoinGecko_2.png'
-    ]
+    ],
+    content: '数字货币实时价格小组件\n\n数据来源于 CoinGecko\n\n'
   },
   {
     name: 'Calendar',
@@ -91,39 +94,40 @@ export const widgets = [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/calendar.jpeg',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@4161187f9f842532d716aeb6958e026a0e6a13a8/docs/assets/calendar_preview_1.jpg',
     ],
-    content: '美观的日历组件\n\n- 支持中英双语\n- 可自定义背景和色彩\n- 编辑组件时可输入系统日历名\n\n- 中号组件可显示事件和自定义是否显示提醒事项\n\n'
+    content: '美观的日历小组件\n\n- 支持中英双语\n- 可自定义背景和色彩\n- 编辑组件时可输入系统日历名\n\n- 中号组件可显示事件和自定义是否显示提醒事项\n\n'
   },
   {
     name: 'Countdown',
     version: '1.2.0',
     icon: 'restore',
-    intro: '倒数日/纪念日',
+    intro: '倒数日/纪念日小组件',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@738c030b80ca4ada3ed1a835763109031befabbe/dist/Countdown.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/countdown_1.jpg',
     ],
-    content: '纪念日/倒数日\n\n- 支持中英双语\n- 可高度自定义\n\n',
+    content: 'Scriptable 纪念日/倒数日小组件\n\n- 支持中英双语\n- 可高度自定义\n\n',
   },
   {
     name: 'Douban',
     version: '1.1.1',
     icon: 'movie',
-    intro: '豆瓣每日电影',
+    intro: '豆瓣每日电影小组件',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@bffe39298db9cb47705e4bfed32a08bcb8763787/dist/Douban.js',
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/Douban_1.png',
     ],
+    content: 'Scriptable 豆瓣每日电影卡片小组件\n\n'
   },
   {
     name: 'Xiaohongshu',
     version: '1.0.2',
     icon: '',
     intro: '小红书热榜小组件',
-    content: '小红书热搜榜单小组件',
+    content: 'Scriptable 小红书热搜榜单小组件\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@c084e5303589bc60ed93dd1e65877880de460379/dist/Xiaohongshu.js',
     ],
@@ -133,8 +137,8 @@ export const widgets = [
     name: 'App 限免优惠',
     version: '1.1.0',
     icon: 'paid',
-    intro: 'iOS 每日限免和优惠应用',
-    content: 'iOS 和 MacOS 每日限免和优惠应用\n\n点击直达应用商店应用详情\n\n',
+    intro: 'iOS 每日限免和优惠应用小组件',
+    content: 'Scriptable iOS 和 MacOS 每日限免和优惠应用小组件\n\n点击直达应用商店应用详情\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@e403141f397f42b0304ad5a68cfb3eb5924b4f59/dist/App%20%E9%99%90%E5%85%8D%E4%BC%98%E6%83%A0.js'
     ],
@@ -146,7 +150,8 @@ export const widgets = [
     name: 'Shortcuts',
     version: '1.2.1',
     icon: 'app_shortcut',
-    intro: '日历和快捷方式',
+    intro: '日历和桌面快捷方式小组件',
+    content: 'Scriptable 日历和桌面快捷方式小组件\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@6e9fe966a478fd8c0aade0b5920fb1b98425a315/dist/Shortcuts.js',
     ],
@@ -181,7 +186,7 @@ export const widgets = [
     name: 'Matrix',
     version: '0.1.1',
     intro: '任意网格排列图片或快捷方式',
-    content: '配置说明：\n图片和快捷方式配置暂未提供可视化配置，如需修改默认配置可进入代码编辑模式参照注释修改',
+    content: '支持任意网格排列图片或快捷方式的 Scriptable 小组件\n\n配置说明：\n图片和快捷方式配置暂未提供可视化配置，如需修改默认配置可进入代码编辑模式参照注释修改',
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@20c1b796f59297515a991adda3f6871bceb09fe7/dist/Matrix.js'
     ],
@@ -195,8 +200,8 @@ export const widgets = [
     name: 'Wallhaven',
     version: '1.0.0',
     icon: 'wallpaper',
-    intro: 'Wallhaven 壁纸',
-    content: 'wallhaven.cc 壁纸。精美高清动漫壁纸，也有其他高质量的图片\n\n- 支持中英双语可视化配置\n- 支持 4 种排列方式\n- 自定义过滤搜索规则\n- 点击可查看和收藏\n\n限制级内容需填写个人账号 API Key\n\n',
+    intro: 'Wallhaven 壁纸小组件',
+    content: 'wallhaven.cc 壁纸小组件。精美高清动漫壁纸，也有其他高质量的图片\n\n- 支持中英双语可视化配置\n- 支持 4 种排列方式\n- 自定义过滤搜索规则\n- 点击可查看和收藏\n\n限制级内容需填写个人账号 API Key\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/Wallhaven.js'
     ],
@@ -211,6 +216,7 @@ export const widgets = [
     version: '1.0.1',
     icon: 'local_gas_station',
     intro: '中国石化油价小组件',
+    content: 'Scriptable 中国石化油价小组件',
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@ff42a9ce1d4ed4d971ef8c43b00388cd32ed59c4/dist/Sinopec.js'
     ],
@@ -222,8 +228,8 @@ export const widgets = [
     name: '星座屋',
     version: '1.0.0',
     icon: 'hub',
-    intro: '星座屋-星座运势',
-    content: '此版数据来源于星座屋\n\n由于不清楚有多少种幸运色，此版边框颜色不会使用幸运色\n\n',
+    intro: '星座屋-星座运势小组件',
+    content: 'Scriptable 星座屋星座运势小组件\n\n此版数据来源于星座屋\n\n由于不清楚有多少种幸运色，此版边框颜色不会使用幸运色\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/%E6%98%9F%E5%BA%A7%E5%B1%8B.js'
     ],
@@ -288,8 +294,8 @@ export const widgets = [
   {
     name: '财联社电报',
     version: '1.0.1',
-    intro: '财联社电报',
-    content: '财联社电报小组件\n\n由 @Yeetouu 投稿\n\n',
+    intro: '财联社电报小组件',
+    content: 'Scriptable 财联社电报小组件\n\n由 @Yeetouu 投稿\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/%E8%B4%A2%E8%81%94%E7%A4%BE%E7%94%B5%E6%8A%A5.js'
     ]
@@ -303,6 +309,7 @@ export const modules = [
     version: '1.0.0',
     icon: 'event_available',
     intro: '农历转换工具',
+    content: 'Scriptable 农历查询和转换模块\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/lunar.module.js',
     ],
@@ -312,6 +319,7 @@ export const modules = [
     version: '1.2.1',
     icon: 'handyman',
     intro: '工具集',
+    content: 'Scriptable 工具集合模块\n\n- 不同设备小组件尺寸和位置信息\n- vw、vh、vmin\n- 脚本更新\- 多语言工具\n - 获取网络图片\n - 日期比较工具 \n- 规范缓存工具\n- 图标换色\n - 等等\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@a3261aea31aa099dcc8bb447e1fb216610d1fb2b/src/utils.module.js',
     ],
@@ -321,6 +329,7 @@ export const modules = [
     version: '1.0.0',
     icon: 'palette',
     intro: '颜色处理工具',
+    content: 'Scriptable 颜色处理工具模块\n\n- 十六进制、RGB 和 HSL 颜色互转\n\n- 颜色亮度调整\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/color.module.js',
     ],
@@ -330,6 +339,7 @@ export const modules = [
     version: '1.0.3',
     icon: 'coronavirus',
     intro: 'Scriptable 与 WebView 的通信桥梁',
+    content: 'Scriptable 与 WebView 的通信模块\n\n- WebView 调用 Scriptable 方法\n- Scriptable JS 注入 WebView\n- 支持监听事件\n- 支持发送消息\n- 支持调用回调\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@4e1d3560b76088dd3805b92ecf7c19fdaa64307a/src/Bridge.module.js'
     ]
@@ -342,7 +352,7 @@ export const modules = [
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@e2151b28ead465d40a15c57ec5a0f75f1d178987/src/withSettings.module.js',
     ],
-    content: '轻松便捷实现 Scriptable 小组件可视化配置\n\n切换主题后可修改不同主题的配置',
+    content: '轻松便捷实现 Scriptable 小组件可视化配置\n\n切换主题后可修改不同主题的配置\n\n',
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/withSettings_light.png',
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/withSettings_dark.png'
@@ -353,6 +363,7 @@ export const modules = [
     version: '1.0.0',
     icon: 'widgets',
     intro: '常用组件工具集',
+    content: 'Scriptable 组件集模块\n\n- 头像组件\n- 网格布局组件\n- 弧形组件\n\n',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/src/widgets.module.js',
     ],
@@ -379,6 +390,7 @@ export const others = [
     version: '1.1.0',
     icon: 'system_update',
     intro: '通过分享、剪贴板和局域网链接快速安装脚本',
+    content: '通过分享、剪贴板和局域网链接快速安装脚本',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Installer.js',
     ],
@@ -388,6 +400,7 @@ export const others = [
     version: '1.0.1',
     icon: 'folder_open',
     intro: '文件管理，可用于清理缓存文件和脚本文件缓存调试',
+    content: 'Scriptable 专用文件管理，可用于清理缓存文件和脚本文件缓存调试',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Clean%20Files.js',
     ],
@@ -407,6 +420,7 @@ export const others = [
     version: '1.0.1',
     icon: 'keyboard_command_key',
     intro: 'SF Symbols 图标浏览查找',
+    content: 'Scriptable SF Symbols 图标浏览查找',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@eb0ffa7c25b2d297e4de7b960fb376d551d959a2/dist/SF%20Symbols.js',
     ],
@@ -419,6 +433,7 @@ export const others = [
     version: '1.0.1',
     icon: 'splitscreen_portrait',
     intro: '桌面小组件尺寸和位置计算',
+    content: 'Scriptable 桌面小组件尺寸和位置计算',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@7d634d67dfdd699f67ed7d117a264395f157eb26/dist/Widget%20Sizes.js'
     ]
@@ -439,6 +454,7 @@ export const others = [
     version: '1.0.2',
     icon: 'token',
     intro: 'Scriptable 脚本仓库',
+    content: 'Scriptable 脚本仓库',
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@d3b482a7e034c9bdf7f2fb082219912f2a618eeb/dist/Scriptore.js',
     ],

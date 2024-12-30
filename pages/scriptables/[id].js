@@ -22,7 +22,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { useCallback, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { blueGrey } from '@mui/material/colors';
-import { widgets, modules, others } from '../../data/scripts';
+import { widgets, modules, others, deprecated } from '../../data/scripts';
 import { invoke } from '../../utils/bridge';
 import { compareVersions } from '../../utils/utils';
 import styles from './[id].module.css'
@@ -116,6 +116,7 @@ const Detail = (props) => {
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover' />
         <title>Scriptore - {data.name}</title>
+        <meta name='description' content={data.intro} />
       </Head>
       <AppBar position='static'>
         <Toolbar>
@@ -264,6 +265,15 @@ export const getStaticProps = ({ params }) => {
     };
   }
 
+  const dep = deprecated.find((item) => item.name === decodeURIComponent(id))
+  if (dep) {
+    return {
+      props: {
+        data: { type: 'deprecated', ...dep }
+      },
+    };
+  }
+
   return {
     notFound: true,
   };
@@ -271,7 +281,7 @@ export const getStaticProps = ({ params }) => {
 
 /** @type {import('next').GetStaticPaths} */
 export const getStaticPaths = async () => {
-  const paths = [...widgets, ...modules, ...others].map((script) => ({
+  const paths = [...widgets, ...modules, ...others, ...deprecated].map((script) => ({
     params: { id: script.name }
   }));
   return {

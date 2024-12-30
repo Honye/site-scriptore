@@ -74,6 +74,7 @@ export default function Home(props) {
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover' />
         <title>Scriptore - Scriptable store</title>
+        <meta name="description" content="Scriptore 是一个开源的 iOS Scriptable 脚本和桌面小组件商店" />
       </Head>
       <HideOnScroll {...props}>
         <AppBar position='static'>
