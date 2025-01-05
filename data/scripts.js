@@ -293,7 +293,7 @@ export const widgets = [
   },
   {
     name: '财联社电报',
-    version: '1.3.0',
+    version: '1.3.2',
     intro: '财联社电报小组件',
     content: 'Scriptable 财联社电报小组件\n\n由 @Yeetouu 投稿\n\n',
     files: [
