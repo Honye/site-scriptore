@@ -238,6 +238,16 @@ export const widgets = [
     ]
   },
   {
+    name: 'Send Photo',
+    version: '1.0.0',
+    icon: 'co_present',
+    intro: '发送图片到朋友桌面组件',
+    content: '和朋友互相发送照片到对方桌面小组件上显示\n\n使用教程：https://mp.weixin.qq.com/s/D-NHT7sQNpD7YvKdz2BhkA\n\n',
+    files: [
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@44d463d25cb17611f39df90c9d0f02a0e6b46041/dist/Send%20Photo.js'
+    ]
+  },
+  {
     name: 'ChatGPT',
     version: '1.1.0',
     icon: 'ac_unit',
