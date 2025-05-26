@@ -302,6 +302,18 @@ export const widgets = [
     ]
   },
   {
+    name: 'CLS Telegraph',
+    version: '1.0.0',
+    intro: '财联社电报小组件 ©imarkr',
+    content: '财联社电报小组件 ©imarkr',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/CLS%20Telegraph.js'
+    ],
+    snapshots: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/CLS_dark.png'
+    ]
+  },
+  {
     name: '财联社电报',
     version: '1.3.2',
     intro: '财联社电报小组件',
