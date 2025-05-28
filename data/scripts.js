@@ -316,11 +316,11 @@ export const widgets = [
   },
   {
     name: '财联社电报',
-    version: '1.3.2',
+    version: '1.3.3',
     intro: '财联社电报小组件',
     content: 'Scriptable 财联社电报小组件\n\n由 @Yeetouu 投稿\n\n',
     files: [
-      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@master/dist/%E8%B4%A2%E8%81%94%E7%A4%BE%E7%94%B5%E6%8A%A5.js'
+      'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@14b7246a1469c549e5767a373e4e2521b8a563f7/dist/%E8%B4%A2%E8%81%94%E7%A4%BE%E7%94%B5%E6%8A%A5.js'
     ]
   }
 ];
