@@ -322,6 +322,15 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/honye/scriptable-scripts@14b7246a1469c549e5767a373e4e2521b8a563f7/dist/%E8%B4%A2%E8%81%94%E7%A4%BE%E7%94%B5%E6%8A%A5.js'
     ]
+  },
+  {
+    name: 'Pet Birthday',
+    version: '1.0.1',
+    intro: '宠物生日小组件',
+    content: '爱宠生日小组件\n\n使用了字体“沐瑶软体”\n\n可以在通讯录中创建一个名为“Pets”的分组，将宠物名字添加进去，设置好生日后即可显示在小组件中\n\n或者在 App 中运行选择宠物图片和配置生日',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Pet%20Birthday.js'
+    ]
   }
 ];
 
