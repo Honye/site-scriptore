@@ -303,12 +303,12 @@ export const widgets = [
   },
   {
     name: 'CLS Telegraph',
-    version: '1.2.0',
+    version: '1.2.1',
     icon: 'newspaper',
     intro: '财联社电报小组件 ©imarkr',
     content: '财联社电报小组件 ©imarkr',
     files: [
-      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@bcc458f761ed1a0313a9c67959dfd0b989ff26c2/dist/CLS%20Telegraph.js'
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@40d4ac931c795d8ebc53229468f0e6a488a86311/dist/CLS%20Telegraph.js'
     ],
     snapshots: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/docs/assets/CLS_dark.png'
