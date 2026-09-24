@@ -331,6 +331,15 @@ export const widgets = [
     files: [
       'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Pet%20Birthday.js'
     ]
+  },
+  {
+    name: 'Days Dots',
+    version: '1.0.0',
+    intro: '剩余日子小组件',
+    content: '用圆点可视化本年/本月的时间进度，已过去的天数为实心亮点，剩余天数为暗点\n\n- 支持小、中、大三种尺寸\n\n- 支持深浅色主题自动切换，颜色可分别配置\n\n- 本月进度按日历月视图 7 列排列，可设置每周从周日或周一开始\n\n- 在 App 中运行可进行可视化配置（进度类型、每周开始日、百分比、颜色、背景）和预览\n\n- 小组件参数填 `year` 显示本年剩余天数，填 `month` 显示本月剩余天数，优先于应用内配置',
+    files: [
+      'https://cdn.jsdelivr.net/gh/Honye/scriptable-scripts@master/dist/Days%20Dots.js'
+    ]
   }
 ];
 
