@@ -1,39 +1,55 @@
-import Head from 'next/head';
+import NextLink from 'next/link';
+import Image from 'next/image';
+import { useCallback, useEffect, useState } from 'react';
 import {
-  AppBar,
-  Avatar,
-  Box, Container,
-  Divider,
-  Icon,
+  Box,
   IconButton,
-  ListItemIcon,
-  ListItemText,
-  Menu,
-  MenuItem,
   Stack,
-  Toolbar,
-  Typography
+  Typography,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
-import Image from 'next/image';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import HomeIcon from '@mui/icons-material/Home';
-import { useCallback, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { blueGrey } from '@mui/material/colors';
+import HomeIcon from '@mui/icons-material/HomeOutlined';
+import Layout from '../../components/Layout';
+import Link from '../../components/Link';
+import ScriptIcon from '../../components/ScriptIcon';
 import { widgets, modules, others, deprecated } from '../../data/scripts';
+import { colorOf } from '../../server/scripts';
 import { invoke } from '../../utils/bridge';
 import { compareVersions } from '../../utils/utils';
 import styles from './[id].module.css'
 
+const typeLabels = {
+  widget: '桌面组件',
+  module: '模块',
+  other: '其他',
+  deprecated: '已过时',
+};
+
+const Heading = ({ children }) => (
+  <Typography variant='h5' component='h2' sx={{ mb: 1.5 }}>{children}</Typography>
+);
+
+const InfoRow = ({ label, children }) => (
+  <Stack
+    direction='row'
+    justifyContent='space-between'
+    spacing={2}
+    sx={{
+      py: 1.25,
+      '& + &': { borderTop: 1, borderColor: 'divider' },
+    }}
+  >
+    <Typography variant='body2' color='text.secondary' sx={{ flexShrink: 0 }}>{label}</Typography>
+    <Typography variant='body2' sx={{ textAlign: 'right', minWidth: 0, wordBreak: 'break-all' }}>{children}</Typography>
+  </Stack>
+);
+
 /**
  * @param {object} props
- * @param {import('../../data/scripts').Script} props.data
+ * @param {import('../../data/scripts').Script & { type: string }} props.data
  */
 const Detail = (props) => {
   const { data } = props;
-  const router = useRouter();
   const [installed, setInstalled] = useState(null);
   const [shouldUpdate, setShouldUpdate] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -61,12 +77,6 @@ const Detail = (props) => {
       setShouldUpdate(false);
     }
   }, [props.data.name]);
-
-  const [anchorEl, setAnchorEl] = useState(null);
-  const onMoreClick = (e) => {
-    setAnchorEl(e.currentTarget);
-  };
-  const onClose = () => setAnchorEl(null);
 
   const install = useCallback(() => {
     const ua = navigator.userAgent;
@@ -105,135 +115,126 @@ const Detail = (props) => {
     }
   }, [install, installed, open, shouldUpdate, update]);
 
-  const toHome = useCallback(() => {
-    router.push('/');
-  }, [router]);
+  const dependencies = Object.keys(data.dependencies || {});
 
   return (
-    <Box
-      sx={{ pt: 'env(safe-area-inset-top)' }}
+    <Layout
+      back
+      title={data.name}
+      pageTitle={`Scriptore - ${data.name}`}
+      description={data.intro}
+      actions={
+        <IconButton color='primary' aria-label='首页' component={NextLink} href='/'>
+          <HomeIcon />
+        </IconButton>
+      }
     >
-      <Head>
-        <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover' />
-        <title>Scriptore - {data.name}</title>
-        <meta name='description' content={data.intro} />
-      </Head>
-      <AppBar position='static'>
-        <Toolbar>
-          <IconButton
-            size='large'
-            edge='start'
-            color='inherit'
-            onClick={() => router.back()}
-          >
-            <ArrowBackIcon />
-          </IconButton>
-          <Typography variant='h6' sx={{ flexGrow: 1 }}>{data.name}</Typography>
-          <IconButton size='large' edge='end' color='inherit' onClick={onMoreClick}>
-            <MoreIcon />
-          </IconButton>
-          <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={onClose}
-          >
-            <MenuItem onClick={toHome}>
-              <ListItemIcon>
-                <HomeIcon fontSize='small' />
-              </ListItemIcon>
-              首页
-            </MenuItem>
-          </Menu>
-        </Toolbar>
-      </AppBar>
-      <Container maxWidth='sm'>
-        <Box
-          sx={{
-            display: 'flex',
-            pt: 2,
-            pb: 1
-          }}
-        >
-          <Avatar
-            sx={{
-              mr: 1.5,
-              borderRadius: 2,
-              bgcolor: data.bgcolor || blueGrey['400'],
-              width: 100,
-              height: 100
-            }}
-            variant='square'
-          >
-            <Icon style={{ fontSize: 60 }}>{ data.icon || 'auto_fix_high' }</Icon>
-          </Avatar>
-          <Box sx={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column'
-          }}>
-            <ListItemText
-              sx={{ mt: 0 }}
-              primary={data.name}
-              secondary={data.intro}
-            />
-            <Stack direction="row" alignItems="flex-end">
-              <LoadingButton
-                sx={{ alignSelf: 'flex-start' }}
-                variant='contained'
-                size='small'
-                loading={loading}
-                onClick={onBtnClick}
-              >{shouldUpdate ? '更新' : installed ? '打开' : '获取'}</LoadingButton>
-              <Typography ml={1} variant="caption">v{data.version}</Typography>
-            </Stack>
-          </Box>
+      <Stack
+        direction='row'
+        alignItems={{ xs: 'flex-start', md: 'center' }}
+        spacing={{ xs: 2, md: 3.5 }}
+        sx={{ mb: { xs: 3, md: 5 } }}
+      >
+        <ScriptIcon
+          icon={data.icon}
+          bgcolor={data.bgcolor}
+          size={128}
+          sx={{ width: { xs: 96, md: 128 }, height: { xs: 96, md: 128 }, fontSize: { xs: 96, md: 128 }, borderRadius: { xs: '22px', md: '30px' } }}
+        />
+        <Box sx={{ minWidth: 0 }}>
+          <Typography
+            variant='h4'
+            component='h1'
+            sx={{ fontSize: { xs: 24, md: 36 }, lineHeight: 1.2, wordBreak: 'break-word' }}
+          >{data.name}</Typography>
+          <Typography color='text.secondary' sx={{ mt: 0.5, fontSize: { xs: 15, md: 18 } }}>{data.intro}</Typography>
+          <Stack direction='row' alignItems='center' spacing={1.5} sx={{ mt: { xs: 1.5, md: 2.5 } }}>
+            <LoadingButton
+              variant='contained'
+              loading={loading}
+              onClick={onBtnClick}
+              sx={{ minWidth: 84, px: 3, fontWeight: 700 }}
+            >{shouldUpdate ? '更新' : installed ? '打开' : '获取'}</LoadingButton>
+            <Typography variant='body2' color='text.secondary'>
+              v{data.version}{typeLabels[data.type] ? `，${typeLabels[data.type]}` : ''}
+            </Typography>
+          </Stack>
         </Box>
-        {data.snapshots?.length && (
-          <>
-            <Divider sx={{ my: 1 }} />
-            <Box>
-              <Typography variant='h6'>预览</Typography>
-              <Box 
+      </Stack>
+
+      {data.snapshots?.length > 0 && (
+        <Box component='section' sx={{ mb: { xs: 3, md: 5 } }}>
+          <Heading>预览</Heading>
+          <Box
+            sx={{
+              display: 'flex',
+              gap: { xs: 1.5, md: 2 },
+              overflowX: 'auto',
+              scrollSnapType: 'x mandatory',
+              mx: { xs: -2, sm: -3, md: 0 },
+              px: { xs: 2, sm: 3, md: 0 },
+              scrollPaddingInline: { xs: 16, sm: 24, md: 0 },
+              '::-webkit-scrollbar': { display: 'none' },
+            }}
+          >
+            {data.snapshots.map((img, index) => (
+              <Box
+                className={styles.snapshotItem}
+                key={index}
                 sx={{
-                  display: 'flex',
-                  gap: 1,
-                  overflow: 'auto',
-                  scrollSnapType: 'x mandatory',
-                  '::-webkit-scrollbar': { display: 'none' },
+                  flex: { xs: '0 0 62%', sm: '0 0 280px', md: '0 0 260px' },
+                  aspectRatio: `${375 / 667}`,
+                  borderRadius: '18px',
+                  overflow: 'hidden',
+                  scrollSnapAlign: 'start',
+                  position: 'relative',
+                  bgcolor: 'background.paper',
                 }}
               >
-                {data.snapshots.map((img, index) => (
-                  <Box
-                    className={styles.snapshotItem}
-                    key={index}
-                    sx={{
-                      minWidth: '60%',
-                      aspectRatio: `${375 / 667}`,
-                      borderRadius: 2,
-                      overflow: 'hidden',
-                      scrollSnapAlign: 'start',
-                      position: 'relative',
-                    }}
-                  >
-                    <Image
-                      style={{ objectFit: 'contain' }}
-                      src={img}
-                      alt=''
-                      fill
-                    />
-                  </Box>
-                ))}
+                <Image
+                  style={{ objectFit: 'contain' }}
+                  src={img}
+                  alt={`${data.name} 预览图 ${index + 1}`}
+                  sizes='(min-width: 600px) 280px, 62vw'
+                  fill
+                />
               </Box>
-            </Box>
-          </>
-        )}
-        <Divider sx={{ my: 1 }} />
-        <Typography
-          sx={{ whiteSpace: 'pre-wrap'}}
-          variant='body1'
-        >{data.content}</Typography>
-      </Container>
-    </Box>
+            ))}
+          </Box>
+        </Box>
+      )}
+
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: 'minmax(0, 1fr) 320px' },
+          gap: { xs: 3, md: 6 },
+          alignItems: 'start',
+        }}
+      >
+        <Box component='section'>
+          <Heading>介绍</Heading>
+          <Typography
+            sx={{ whiteSpace: 'pre-wrap', maxWidth: '68ch' }}
+            variant='body1'
+          >{(data.content || data.intro || '').trim()}</Typography>
+        </Box>
+        <Box component='aside'>
+          <Heading>信息</Heading>
+          <Box sx={{ bgcolor: 'background.paper', borderRadius: '18px', px: 2, py: 0.5 }}>
+            <InfoRow label='版本'>{data.version}</InfoRow>
+            <InfoRow label='分类'>{typeLabels[data.type] || '-'}</InfoRow>
+            <InfoRow label='文件'>{data.files.length} 个</InfoRow>
+            {dependencies.length > 0 && (
+              <InfoRow label='依赖'>{dependencies.join('、')}</InfoRow>
+            )}
+            <InfoRow label='源码'>
+              <Link href={data.files[0]} sx={{ cursor: 'pointer' }}>查看入口文件</Link>
+            </InfoRow>
+          </Box>
+        </Box>
+      </Box>
+    </Layout>
   );
 };
 
@@ -244,7 +245,7 @@ export const getStaticProps = ({ params }) => {
   if (widget) {
     return {
       props: {
-        data: { type: 'widget', ...widget }
+        data: { type: 'widget', bgcolor: colorOf(widget.name), ...widget }
       },
     };
   }
@@ -252,7 +253,7 @@ export const getStaticProps = ({ params }) => {
   if (mod) {
     return {
       props: {
-        data: { type: 'module', ...mod }
+        data: { type: 'module', bgcolor: colorOf(mod.name), ...mod }
       },
     };
   }
@@ -260,7 +261,7 @@ export const getStaticProps = ({ params }) => {
   if (other) {
     return {
       props: {
-        data: { type: 'other', ...other }
+        data: { type: 'other', bgcolor: colorOf(other.name), ...other }
       },
     };
   }
@@ -269,7 +270,7 @@ export const getStaticProps = ({ params }) => {
   if (dep) {
     return {
       props: {
-        data: { type: 'deprecated', ...dep }
+        data: { type: 'deprecated', bgcolor: colorOf(dep.name), ...dep }
       },
     };
   }

@@ -1,14 +1,5 @@
-import Link from 'next/link';
 import { useCallback, useState } from 'react';
-import {
-  Avatar,
-  Icon,
-  ListItem,
-  ListItemAvatar,
-  ListItemButton,
-  ListItemText,
-} from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import ScriptTile, { PillButton } from './ScriptTile';
 import { invoke } from '../utils/bridge';
 
 const Item = (props) => {
@@ -50,36 +41,15 @@ const Item = (props) => {
   }, [open, update, updated]);
 
   return (
-    <ListItem
-      sx={{
-        '>.MuiListItemButton-root': {
-          pr: 11
-        }
-      }}
-      secondaryAction={
-        <LoadingButton
-          sx={{ textTransform:'none' }}
-          edge='end'
-          variant='outlined'
-          size='small'
-          loading={loading}
-          onClick={onClick}
-        >{updated ? '打开' : '更新'}</LoadingButton>
+    <ScriptTile
+      data={data}
+      secondary={`新版本 v${data.version || '0.0.0'}`}
+      action={
+        <PillButton loading={loading} onClick={onClick}>
+          {updated ? '打开' : '更新'}
+        </PillButton>
       }
-      disablePadding
-    >
-      <ListItemButton component={Link} href={`/scriptables/${data.name}`}>
-        <ListItemAvatar>
-          <Avatar
-            sx={{ width: 44, height: 44, borderRadius: 2, bgcolor: data.bgcolor }}
-            variant='square'
-          >
-            <Icon>{data.icon || 'auto_fix_high'}</Icon>
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary={data.name} secondary={`版本 ${data.version || '0.0.0'}`} />
-      </ListItemButton>
-    </ListItem>
+    />
   )
 }
 
