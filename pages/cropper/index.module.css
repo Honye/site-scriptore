@@ -1,9 +1,13 @@
 .image {
   display: block;
   width: 100%;
-  max-width: 768px;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
 }
-.box {
-  display: inline-block;
-  box-sizing: border-box;
+
+@media (min-width: 900px) {
+  .image {
+    height: 460px;
+  }
 }
